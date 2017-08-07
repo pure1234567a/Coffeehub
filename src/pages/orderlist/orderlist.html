@@ -1,0 +1,188 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>orderlist</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h1 class="fontsizeOS2">Order list</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 class="borderOS">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <h1 class = "fontsizeOS">
+                Order from : pure
+              </h1>
+            </ion-col>
+            <ion-col col-6></ion-col>
+            <ion-col col-2>
+              <button ion-button icon-start class="fontsizeOS3" color="secondary">
+                <ion-icon name="md-checkmark"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 class="borderOS">
+              <ion-list>
+                <button ion-button icon-start color="light">
+                <ion-icon name="md-checkmark"></ion-icon>
+              </button>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Amount</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
+                    <ion-option selected value="one">1</ion-option>
+                    <ion-option value="two">2</ion-option>
+                    <ion-option value="three">3</ion-option>
+                    <ion-option value="four">4</ion-option>
+                    <ion-option value="five">5</ion-option>
+                    <ion-option value="six">6</ion-option>
+                    <ion-option value="seven">7</ion-option>
+                    <ion-option value="eight">8</ion-option>
+                    <ion-option value="nine">9</ion-option>
+                    <ion-option value="ten">10</ion-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Sweetness</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
+                    <ion-option value="lo">Low</ion-option>
+                    <ion-option selected value="me">Medium</ion-option>
+                    <ion-option value="hi">High</ion-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Degrees</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
+                    <ion-option selected value="r">regular</ion-option>
+                    <ion-option value="ha">Half-caf</ion-option>
+                    <ion-option value="de">De-caf</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 class="borderOS">
+              <ion-list>
+                <button ion-button icon-start color="light">
+                <ion-icon name="md-checkmark"></ion-icon>
+              </button>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Amount</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
+                    <ion-option selected value="one">1</ion-option>
+                    <ion-option value="two">2</ion-option>
+                    <ion-option value="three">3</ion-option>
+                    <ion-option value="four">4</ion-option>
+                    <ion-option value="five">5</ion-option>
+                    <ion-option value="six">6</ion-option>
+                    <ion-option value="seven">7</ion-option>
+                    <ion-option value="eight">8</ion-option>
+                    <ion-option value="nine">9</ion-option>
+                    <ion-option value="ten">10</ion-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Sweetness</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
+                    <ion-option value="lo">Low</ion-option>
+                    <ion-option selected value="me">Medium</ion-option>
+                    <ion-option value="hi">High</ion-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Degrees</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
+                    <ion-option selected value="r">regular</ion-option>
+                    <ion-option value="ha">Half-caf</ion-option>
+                    <ion-option value="de">De-caf</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 class="borderOS">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <h1 class = "fontsizeOS">
+                Order from : mix
+              </h1>
+            </ion-col>
+            <ion-col col-6></ion-col>
+            <ion-col col-2>
+              <button ion-button icon-start class="fontsizeOS3" color="secondary">
+                <ion-icon name="md-checkmark"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 class="borderOS">
+              <ion-list>
+                <button ion-button icon-start color="light">
+                <ion-icon name="md-checkmark"></ion-icon>
+              </button>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Amount</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
+                    <ion-option selected value="one">1</ion-option>
+                    <ion-option value="two">2</ion-option>
+                    <ion-option value="three">3</ion-option>
+                    <ion-option value="four">4</ion-option>
+                    <ion-option value="five">5</ion-option>
+                    <ion-option value="six">6</ion-option>
+                    <ion-option value="seven">7</ion-option>
+                    <ion-option value="eight">8</ion-option>
+                    <ion-option value="nine">9</ion-option>
+                    <ion-option value="ten">10</ion-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Sweetness</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
+                    <ion-option value="lo">Low</ion-option>
+                    <ion-option selected value="me">Medium</ion-option>
+                    <ion-option value="hi">High</ion-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label class="fontsizedetailHS">Degrees</ion-label>
+                  <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
+                    <ion-option selected value="r">regular</ion-option>
+                    <ion-option value="ha">Half-caf</ion-option>
+                    <ion-option value="de">De-caf</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

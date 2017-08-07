@@ -1,0 +1,350 @@
+<ion-header class="heightheaderHS">
+  <ion-toolbar class="heightheaderHS">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-2>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-2>
+              </ion-col>
+              <ion-col col-2>
+              </ion-col>
+              <ion-col col-2>
+              </ion-col>
+              <ion-col col-2>
+              </ion-col>
+              <ion-col col-2>
+                <ion-icon name="camera" class="iconinheaderHS"></ion-icon>
+              </ion-col>
+              <ion-col col-2>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="heightrowHS widthrowHS">
+      <ion-col col-6 class="borderrightHS">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 class="borderbottomHS">
+              <h1 class="fontsizeH1menulistHS">Menu list</h1>
+              <button ion-button full class="bntclearHS">Clear all menu</button>
+            </ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-scroll scrollY="true" class="heightscrollboxmenulistHS ">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-12>
+                          <ion-grid>
+                            <ion-row>
+                              <ion-col col-12 class="borderbottomHS">
+                                <ion-list>
+                                  <button ion-button icon-only class="colorbntHS">
+                            <ion-icon name="close"></ion-icon>
+                        </button>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
+                                  </ion-item>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">Amount</ion-label>
+                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
+                                      <ion-option selected value="one">1</ion-option>
+                                      <ion-option value="two">2</ion-option>
+                                      <ion-option value="three">3</ion-option>
+                                      <ion-option value="four">4</ion-option>
+                                      <ion-option value="five">5</ion-option>
+                                      <ion-option value="six">6</ion-option>
+                                      <ion-option value="seven">7</ion-option>
+                                      <ion-option value="eight">8</ion-option>
+                                      <ion-option value="nine">9</ion-option>
+                                      <ion-option value="ten">10</ion-option>
+                                    </ion-select>
+                                  </ion-item>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">Sweetness</ion-label>
+                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
+                                      <ion-option value="lo">Low</ion-option>
+                                      <ion-option selected value="me">Medium</ion-option>
+                                      <ion-option value="hi">High</ion-option>
+                                    </ion-select>
+                                  </ion-item>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">Degrees</ion-label>
+                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
+                                      <ion-option selected value="r">regular</ion-option>
+                                      <ion-option value="ha">Half-caf</ion-option>
+                                      <ion-option value="de">De-caf</ion-option>
+                                    </ion-select>
+                                  </ion-item>
+                                </ion-list>
+                              </ion-col>
+                            </ion-row>
+                          </ion-grid>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid> 
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-12>
+                          <ion-grid>
+                            <ion-row>
+                              <ion-col col-12 class="borderbottomHS">
+                                <ion-list>
+                                  <button ion-button icon-only class="colorbntHS">
+                                      <ion-icon name="close"></ion-icon>
+                                  </button>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
+                                  </ion-item>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">Amount</ion-label>
+                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
+                                      <ion-option selected value="one">1</ion-option>
+                                      <ion-option value="two">2</ion-option>
+                                      <ion-option value="three">3</ion-option>
+                                      <ion-option value="four">4</ion-option>
+                                      <ion-option value="five">5</ion-option>
+                                      <ion-option value="six">6</ion-option>
+                                      <ion-option value="seven">7</ion-option>
+                                      <ion-option value="eight">8</ion-option>
+                                      <ion-option value="nine">9</ion-option>
+                                      <ion-option value="ten">10</ion-option>
+                                    </ion-select>
+                                  </ion-item>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">Sweetness</ion-label>
+                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
+                                      <ion-option value="lo">Low</ion-option>
+                                      <ion-option selected value="me">Medium</ion-option>
+                                      <ion-option value="hi">High</ion-option>
+                                    </ion-select>
+                                  </ion-item>
+                                  <ion-item>
+                                    <ion-label class="fontsizedetailHS">Degrees</ion-label>
+                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
+                                      <ion-option selected value="r">regular</ion-option>
+                                      <ion-option value="ha">Half-caf</ion-option>
+                                      <ion-option value="de">De-caf</ion-option>
+                                    </ion-select>
+                                  </ion-item>
+                                </ion-list>
+                              </ion-col>
+                            </ion-row>
+                          </ion-grid>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-scroll>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col col-6 class=" ">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+              <ion-slides pager class="heightslidepageHS">
+                <ion-slide>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-12>
+                        <ion-scroll scrollY="true" class="heightscrollboxHS widthscrollboxHS">
+                          <h1 class="h1toleftHS borderbottomh1menuHS fontsizeH1HS">Dessert</h1>
+                          <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS ">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                          <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                          <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                          <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                        </ion-scroll>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-slide>
+                <ion-slide>
+                  <ion-scroll scrollY="true" class="heightscrollboxHS widthscrollboxHS">
+                    <h1 class="h1toleftHS borderbottomh1menuHS fontsizeH1HS">Drinks</h1>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                  </ion-scroll>
+                </ion-slide>
+                <ion-slide>
+                  <ion-scroll scrollY="true" class="heightscrollboxHS widthscrollboxHS">
+                    <h1 class="h1toleftHS borderbottomh1menuHS fontsizeH1HS">Food</h1>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                    <button ion-button outline class="widthbntHS heightbntHS">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col col-6>
+                                  <p class="margintoptextbntmenuHS">กาแฟร้อน</p>
+                                </ion-col>
+                                <ion-col col-6>
+                                  <p class="marginbuttomtextbntmenuHS">50บาท</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>                            
+                          </button>
+                  </ion-scroll>
+                </ion-slide>
+              </ion-slides>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-12 class="bordertopHS">
+                    <button ion-button full class="heightbntcalandccHS" (click)="gotocalculate()"><p class="fontsizebntHS">Calculate</p></button>
+                    <button ion-button full class=" heightbntcalandccHS"><p class="fontsizebntHS">Cup Coins</p></button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
