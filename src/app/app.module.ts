@@ -18,6 +18,14 @@ import { PromotionPage } from '../pages/promotion/promotion';
 import { CalculatePage } from '../pages/calculate/calculate';
 import { ReceiptPage } from '../pages/receipt/receipt';
 
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'e54a9601'
+  }
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -36,6 +44,7 @@ import { ReceiptPage } from '../pages/receipt/receipt';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,7 +64,7 @@ import { ReceiptPage } from '../pages/receipt/receipt';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
