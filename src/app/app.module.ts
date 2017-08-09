@@ -18,6 +18,7 @@ import { PromotionPage } from '../pages/promotion/promotion';
 import { CalculatePage } from '../pages/calculate/calculate';
 import { ReceiptPage } from '../pages/receipt/receipt';
 
+
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 const cloudSettings: CloudSettings = {
