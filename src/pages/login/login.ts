@@ -61,7 +61,7 @@ export class LoginPage {
 
   login() {
     this.presentLoading('Thanks for signing up!');
-    // this.navCtrl.push(HomePage);
+    this.navCtrl.push(HomePage);
   }
 
   signup() {
