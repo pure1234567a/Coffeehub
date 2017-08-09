@@ -1,4 +1,4 @@
-<ion-header no-border>
+<ion-header>
   <ion-toolbar>
     <button ion-button menuToggle start>
       <ion-icon name="menu"></ion-icon>
@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed scroll="false">
+  <ion-grid fixed gridheight>
     <ion-row colheight>
       <!-- <ion-scroll item-height="100%" item-width="100%"> -->
       <ion-col col-5>
@@ -28,112 +28,46 @@
               </ion-col>
             </ion-row>
           </ion-list-header>
-
-          <ion-card>
-            <ion-card-header>
-              <ion-row>
-                <ion-col col-10>
-                  <span align-items-center><h2>Product Name......</h2></span>
-                </ion-col>
-                <ion-col col-2 text-right>
-                  <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
-</button>
-                </ion-col>
-              </ion-row>
-
-
-            </ion-card-header>
-            <ion-card-content>
-              <ion-list>
-                <ion-item>
-                  <ion-label color="primary">Amount</ion-label>
-                  <ion-input type="number" max=30 min=0></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label color="primary">Sweetness level</ion-label>
-                  <ion-input type="number"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label color="primary">Amount of caffeine</ion-label>
-                  <ion-input type="number"></ion-input>
-
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-
-          </ion-card>
-
-
-          <ion-card>
-            <ion-card-header>
-              <ion-row>
-                <ion-col col-10>
-                  <span align-items-center><h2>Product Name......</h2></span>
-                </ion-col>
-                <ion-col col-2 text-right>
-                  <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
-</button>
-                </ion-col>
-              </ion-row>
-
-
-            </ion-card-header>
-            <ion-card-content>
-              <ion-list>
-                <ion-item>
-                  <ion-label color="primary">Amount</ion-label>
-                  <ion-input type="number" max=30 min=0></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label color="primary">Sweetness level</ion-label>
-                  <ion-input type="number"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label color="primary">Amount of caffeine</ion-label>
-                  <ion-input type="number"></ion-input>
-
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-
-          </ion-card>
-
-          <ion-card>
-            <ion-card-header>
-              <ion-row>
-                <ion-col col-10>
-                  <span align-items-center><h2>Product Name......</h2></span>
-                </ion-col>
-                <ion-col col-2 text-right>
-                  <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
-</button>
-                </ion-col>
-              </ion-row>
-
-
-            </ion-card-header>
-            <ion-card-content>
-              <ion-list>
-                <ion-item>
-                  <ion-label color="primary">Amount</ion-label>
-                  <ion-input type="number" max=30 min=0></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label color="primary">Sweetness level</ion-label>
-                  <ion-input type="number"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label color="primary">Amount of caffeine</ion-label>
-                  <ion-input type="number"></ion-input>
-
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-
-          </ion-card>
-
         </ion-list>
+        <ion-scroll scrollY="true" class="heightscrollboxmenulistHS ">
 
+          <!-- <ion-scroll scrollY="true" direction="xy" overflow-scroll="true"> -->
+          <ion-list>
+            <ion-card *ngFor="let order of [1,2,3,4,5]">
+              <ion-card-header>
+                <ion-row>
+                  <ion-col col-10>
+                    <span align-items-center><h2>Product Name......</h2></span>
+                  </ion-col>
+                  <ion-col col-2 text-right>
+                    <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
+</button>
+                  </ion-col>
+                </ion-row>
+
+
+              </ion-card-header>
+              <ion-card-content>
+                <ion-list>
+                  <ion-item>
+                    <ion-label color="primary">Amount</ion-label>
+                    <ion-input type="number" max=30 min=0></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label color="primary">Sweetness level</ion-label>
+                    <ion-input type="number"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label color="primary">Amount of caffeine</ion-label>
+                    <ion-input type="number"></ion-input>
+
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+            <!-- </ion-scroll> -->
+          </ion-list>
+        </ion-scroll>
       </ion-col>
       <!-- </ion-scroll> -->
       <ion-col col-7>
@@ -198,9 +132,6 @@
             </ion-list>
 
 
-
-
-
           </ion-slide>
 
           <ion-slide style="background-color: blue">
@@ -216,10 +147,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
 </ion-content>
-
-
-
 
 
 
