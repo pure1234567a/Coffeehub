@@ -18,6 +18,7 @@ import { PromotionPage } from '../pages/promotion/promotion';
 import { CalculatePage } from '../pages/calculate/calculate';
 import { ReceiptPage } from '../pages/receipt/receipt';
 
+// import { HomeService } from '../pages/home/home.service';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
@@ -40,12 +41,12 @@ const cloudSettings: CloudSettings = {
     NewsPage,
     PromotionPage,
     CalculatePage,
-    ReceiptPage
+    ReceiptPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings),
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,6 +66,7 @@ const cloudSettings: CloudSettings = {
   providers: [
     StatusBar,
     SplashScreen,
+    // HomeService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

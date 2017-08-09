@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed gridheight>
+  <ion-grid gridheight>
     <ion-row colheight>
       <!-- <ion-scroll item-height="100%" item-width="100%"> -->
       <ion-col col-5>
@@ -29,7 +29,7 @@
             </ion-row>
           </ion-list-header>
         </ion-list>
-        <ion-scroll scrollY="true" class="heightscrollboxmenulistHS scrollsize ">
+        <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
 
           <!-- <ion-scroll scrollY="true" direction="xy" overflow-scroll="true"> -->
           <ion-list>
@@ -51,16 +51,26 @@
                 <ion-list>
                   <ion-item>
                     <ion-label color="primary">Amount</ion-label>
-                    <ion-input type="number" max=30 min=0></ion-input>
+                    <ion-input type="number" text-right margin-right></ion-input>
+                    <button ion-button color="danger" item-right><ion-icon name="ios-remove"></ion-icon>
+</button><button ion-button color="secondary" item-right no-margin no-padding><ion-icon name="ios-add"></ion-icon>
+</button>
                   </ion-item>
                   <ion-item>
                     <ion-label color="primary">Sweetness level</ion-label>
-                    <ion-input type="number"></ion-input>
+                    <ion-select [(ngModel)]="Sweetness" interface="popover">
+                      <ion-option value="lo">Low</ion-option>
+                      <ion-option selected value="me">Medium</ion-option>
+                      <ion-option value="hi">High</ion-option>
+                    </ion-select>
                   </ion-item>
                   <ion-item>
                     <ion-label color="primary">Amount of caffeine</ion-label>
-                    <ion-input type="number"></ion-input>
-
+                    <ion-select [(ngModel)]="Degrees" interface="popover">
+                      <ion-option selected value="r">regular</ion-option>
+                      <ion-option value="ha">Half-caf</ion-option>
+                      <ion-option value="de">De-caf</ion-option>
+                    </ion-select>
                   </ion-item>
                 </ion-list>
               </ion-card-content>
@@ -72,66 +82,118 @@
       <!-- </ion-scroll> -->
       <ion-col col-7>
 
-        <ion-slides pager>
-          <ion-slide>
+        <!-- <ion-slides pager> -->
+        <ion-segment [(ngModel)]="menu" color="secondary">
+          <ion-segment-button value="drink" alignText ng-selected="true">
+            <!-- <ion-icon name="ios-cafe" padding-right></ion-icon> -->
+            Drink
+          </ion-segment-button>
+
+          <ion-segment-button value="dessert" alignText>
+            <!-- <ion-icon name="ios-cafe" padding-right></ion-icon> -->
+            Dessert
+          </ion-segment-button>
+          <ion-segment-button value="food" alignText>
+            <!-- <ion-icon name="ios-cafe" padding-right></ion-icon> -->
+            Food
+          </ion-segment-button>
+        </ion-segment>
+
+        <ion-grid [ngSwitch]="menu" gridmenu>
+          <ion-row row2>
+            <ion-col col-12>
+              <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize2>
+                <ion-list *ngSwitchCase="'drink'">
+                  <ion-card *ngFor="let order of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]" style="background-image: url('../../assets/590.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
+                    imgcard>
+                    <ion-card-header cardHeader>
+                      Hot Coffee
+                    </ion-card-header>
+                    <ion-card-content prdPosition>
+                      45.-
+                    </ion-card-content>
+                  </ion-card>
+                </ion-list>
+
+                <ion-list *ngSwitchCase="'dessert'">
+                  <ion-card *ngFor="let order of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]" style="background-image: url('http://images.media-allrecipes.com/userphotos/250x250/708879.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
+                    imgcard>
+                    <ion-card-header cardHeader>
+                      Cake
+                    </ion-card-header>
+                    <ion-card-content prdPosition>
+                      35.-
+                    </ion-card-content>
+                  </ion-card>
+                </ion-list>
+              </ion-scroll>
+              <ion-grid>
+                <ion-row>
+                  <ion-col span-2>
+                    <button ion-button icon-left full>
+  <ion-icon name="md-qr-scanner"></ion-icon>
+  QR Scan
+</button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <button ion-button icon-left full>
+  <ion-icon name="md-calculator"></ion-icon>
+  Calculate
+</button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <button ion-button icon-left full>
+  <ion-icon name="ios-cash"></ion-icon>
+  Sell cupcoin
+</button>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button icon-left full>
+                    <ion-icon name="logo-usd"></ion-icon>
+  Topup cupcoin
+</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+
+
+
+        <!-- <ion-slide>
             <ion-list>
               <ion-list-header>
                 <ion-row>
-                  <h1 align-items-stretch>Drinks</h1>
+                  <h1>Drinks</h1>
                 </ion-row>
               </ion-list-header>
-              <ion-grid>
-                <ion-row>
-                  <ion-col col-6>
-                    <ion-card style="background-image: url('../../assets/590.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
-                      imgcard>
-                      <ion-card-header cardHeader>
-                        กาแฟร้อน
-                      </ion-card-header>
-                      <ion-card-content>
-                        ราคา XXX บาท
-                      </ion-card-content>
-                      <!-- <image bgImg></image> -->
-                    </ion-card>
-                    <ion-card>
-                      <ion-card-header>
-                        กาแฟเย็น
-                      </ion-card-header>
-                      <ion-card-content>
-                        ราคา XXX บาท
-                      </ion-card-content>
-                      <!-- <image bgImg></image> -->
-                    </ion-card>
-                  </ion-col>
-                  <ion-col col-6>
-                    <ion-card style="background-image: url('../../assets/Orange.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
-                      imgcard>
-                      <!-- <img src="../../assets/590.jpg" width="100" height="100"> -->
-                      <ion-card-header>
-                        น้ำส้ม
-                      </ion-card-header>
-                      <ion-card-content>
-                        ราคา XXX บาท
-                      </ion-card-content>
-                    </ion-card>
-                    <ion-card>
-                      <ion-card-header>
-                        ชาเขียว
-                      </ion-card-header>
-                      <ion-card-content>
-                        ราคา XXX บาท
-                      </ion-card-content>
-                      <!-- <image bgImg></image> -->
-                    </ion-card>
-                  </ion-col>
-                </ion-row>
-
-              </ion-grid>
-
-
             </ion-list>
 
+            <ion-grid>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-list>
+                    <ion-card *ngFor="let order of [1,2,3,4,5,6,7,8]" style="background-image: url('../../assets/590.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
+                      imgcard>
+                      <ion-card-header cardHeader>
+                        สินค้า 1
+                      </ion-card-header>
+                      <ion-card-content>
+                        45.-
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
 
+            </ion-grid>
           </ion-slide>
 
           <ion-slide style="background-color: blue">
@@ -142,7 +204,7 @@
             <h2>Slide 3</h2>
           </ion-slide>
 
-        </ion-slides>
+        </ion-slides> -->
 
       </ion-col>
     </ion-row>
