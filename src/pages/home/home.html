@@ -51,16 +51,26 @@
                 <ion-list>
                   <ion-item>
                     <ion-label color="primary">Amount</ion-label>
-                    <ion-input type="number" max=30 min=0></ion-input>
+                    <ion-input type="number" text-right margin-right></ion-input>
+                    <button ion-button color="danger" item-right><ion-icon name="ios-remove"></ion-icon>
+</button><button ion-button color="secondary" item-right no-margin no-padding><ion-icon name="ios-add"></ion-icon>
+</button>
                   </ion-item>
                   <ion-item>
                     <ion-label color="primary">Sweetness level</ion-label>
-                    <ion-input type="number"></ion-input>
+                    <ion-select [(ngModel)]="Sweetness" interface="popover">
+                      <ion-option value="lo">Low</ion-option>
+                      <ion-option selected value="me">Medium</ion-option>
+                      <ion-option value="hi">High</ion-option>
+                    </ion-select>
                   </ion-item>
                   <ion-item>
                     <ion-label color="primary">Amount of caffeine</ion-label>
-                    <ion-input type="number"></ion-input>
-
+                    <ion-select [(ngModel)]="Degrees" interface="popover">
+                      <ion-option selected value="r">regular</ion-option>
+                      <ion-option value="ha">Half-caf</ion-option>
+                      <ion-option value="de">De-caf</ion-option>
+                    </ion-select>
                   </ion-item>
                 </ion-list>
               </ion-card-content>
@@ -83,13 +93,13 @@
               <ion-grid>
                 <ion-row>
                   <ion-col col-6>
-                    <ion-card style="background-image: url('../../assets/590.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
+                    <ion-card *ngFor="let prod of homemo.products" style="background-image: url('../../assets/590.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
                       imgcard>
                       <ion-card-header cardHeader>
-                        กาแฟร้อน
+                        {{prod.name}}
                       </ion-card-header>
                       <ion-card-content>
-                        ราคา XXX บาท
+                        {{prod.price}}
                       </ion-card-content>
                       <!-- <image bgImg></image> -->
                     </ion-card>

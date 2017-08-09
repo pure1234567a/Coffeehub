@@ -1,0 +1,87 @@
+{
+    "orders": [
+        {
+            "item": [
+                {
+                    "product_id": "000111101",
+                    "amount": "85",
+                    "qty": 1
+                },
+                {
+                    "product_id": "000111102",
+                    "amount": "50",
+                    "qty": 2
+                }
+            ],
+            "shop_id": "123012441",
+            "date": "12102560",
+            "net_amount": 185,
+            "emp_id": "1240444",
+            "receiptNo": "00000000001",
+            "change": 15,
+            "cash": 200
+        },
+        {
+            "item": [
+                {
+                    "product_id": "000111101",
+                    "amount": "85",
+                    "qty": 1
+                },
+                {
+                    "product_id": "000111102",
+                    "amount": "50",
+                    "qty": 2
+                }
+            ],
+            "shop_id": "123012441",
+            "date": "12102560",
+            "net_amount": 185,
+            "emp_id": "1240444",
+            "receiptNo": "00000000001",
+            "change": 15,
+            "cash": 200
+        }
+    ],
+    "products": [
+        {
+            "category": [
+                {
+                    "name": "Drink",
+                    "detail": "sss",
+                    "subcate": "coffee"
+                }
+            ],
+            "image": "./assets/590.jpg",
+            "name": "กาแฟร้อน",
+            "shop_id": "000001",
+            "price": 85
+        },
+        {
+            "category": [
+                {
+                    "name": "Drink",
+                    "detail": "sss",
+                    "subcate": "coffee"
+                }
+            ],
+            "image": "./assets/590.jpg",
+            "name": "กาแฟเย็น",
+            "shop_id": "000001",
+            "price": 100
+        },
+        {
+            "category": [
+                {
+                    "name": "Drink",
+                    "detail": "sss",
+                    "subcate": "softdrink"
+                }
+            ],
+            "image": "./assets/590.jpg",
+            "name": "น้ำส้ม",
+            "shop_id": "000001",
+            "price": 40
+        }
+    ]
+}
