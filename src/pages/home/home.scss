@@ -145,7 +145,7 @@
 }
 
 [colheight] {
-    height: 100%;
+    height: 99%;
 }
 
 [gridheight] {
@@ -158,18 +158,50 @@
 }
 
 [imgcard] {
-    height: 80%;
+    height: 40%;
+    width: 40%;
+    display: inline-table;
+}
+
+.segment-ios .segment-button {
+    font-size: 2.0rem;
 }
 
 [cardHeader] {
     text-align: left;
     font-weight: bold;
+    color: white;
+    mix-blend-mode: difference;
 }
 
 [headtext] {
     top: 10px;
 }
 
-.scrollsize {
+[gridmenu] {
+    height: 100%;
+}
+
+[scrollsize1] {
     height: 85% !important;
+}
+
+[scrollsize2] {
+    height: 100% !important;
+}
+
+[prdPosition] {
+    margin-left: 70%;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    mix-blend-mode: color-dodge;
+}
+
+.list-ios {
+    text-align: center;
+}
+
+[row2] {
+    height: 70%;
 }

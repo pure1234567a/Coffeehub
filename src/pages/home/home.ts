@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 import { CalculatePage } from "../calculate/calculate";
 
 import { HomeModel } from './home.model';
@@ -10,8 +10,9 @@ import 'rxjs/Rx';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  menu = "drink";
   homemo: HomeModel = new HomeModel();
-  constructor(public navCtrl: NavController,
+  constructor(public navCtrl: NavController
     //  public homeservice: HomeService
   ) {
 
