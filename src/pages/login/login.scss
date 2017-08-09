@@ -69,7 +69,7 @@ page-login {
         box-shadow: none !important;
     } //
     .login-button {
-        width: 100%;
+        width: 50%;
         height: 50px;
         font-size: 1.2em;
         span {
@@ -108,4 +108,11 @@ page-login {
         margin: 0 auto;
         width: 200px;
     }
+    .bnt-center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .bnt-size {
+    width: 30%;
+}
 }

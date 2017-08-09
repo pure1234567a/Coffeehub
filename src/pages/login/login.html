@@ -2,7 +2,7 @@
   <ion-header>
     <ion-navbar>
     </ion-navbar>
-  </ion-header>
+  </ion-header> 
   <ion-slides #slider class="content-slider" direction="vertical">
     <ion-slide class="swiper-no-swiping">
       <div padding>
@@ -43,7 +43,7 @@
               <ion-label floating>Password</ion-label>
               <ion-input type="password"></ion-input>
             </ion-item>
-            <button ion-button block round (click)="login()" color="light" class="login-button">Login</button>
+            <button ion-button block round (click)="login()" color="light" class="login-button bnt-center bnt-size">SIGN IN</button>
             <button ion-button clear (click)="slideNext()" color="light" class="forgot-button">FORGOT PASSWORD?</button>
           </div>
           <button ion-button clear (click)="goToSignup()" class="slide-button position-bottom">GO TO SIGNUP<ion-icon name="arrow-down"></ion-icon></button>
@@ -78,7 +78,7 @@
           <ion-label floating>Confirm Password</ion-label>
           <ion-input type="password"></ion-input>
         </ion-item>
-        <button ion-button block round (click)="signup()" color="light" class="login-button">SIGN UP</button>
+        <button ion-button block round (click)="signup()" color="light" class="login-button bnt-center bnt-size">SIGN UP</button>
       </div>
     </ion-slide>
   </ion-slides>
