@@ -59,7 +59,7 @@ export class HomePage {
     return list.category[0].name == 'Food';
   }
   gotoCalculate() {
-    if (this.orderDaft.length) {
+    if (this.orderDaft) {
 
 
       // this.storage.setItem('order', )
@@ -72,6 +72,7 @@ export class HomePage {
     this.orderDaft = {
       'item': [
         {
+          'name': '',
           'product_id': '',
           'amount': 0,
           'qty': 0,
@@ -84,6 +85,17 @@ export class HomePage {
   }
   addtoOrder(item) {
     console.log(item);
-    // this.orderDaft.item.put();
+    if (!this.orderDaft.item) {
+      this.orderDaft.item.product_id.put(item._id);
+      this.orderDaft.item.qty.put(1);
+      this.orderDaft.item.amount.put(item.price);
+    } else if (this.orderDaft.item && item._id != this.orderDaft.item._id) {
+      this.orderDaft.item.product_id.put(item._id);
+      this.orderDaft.item.qty.put(1);
+      this.orderDaft.item.amount.put(item.price);
+    } else if (this.orderDaft.item && item._id == this.orderDaft.item._id) {
+
+    }
+
   }
 }
