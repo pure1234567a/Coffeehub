@@ -17,3 +17,37 @@
 .fontsizeOS3 {
     font-size: 20px ;
 }
+
+.scrollsizeOS {
+    height: 100% !important;
+}
+
+.heightscrollboxmenulistOS {
+    height: 100% !important;
+}
+
+[gridheight] {
+    height: 100% !important;
+    overflow: hidden;
+}
+
+[colheight] {
+    height: 99%;
+}
+
+[sizecardOL] {
+    width: 47%;
+    display: inline-table;
+}
+
+[sizecardOL2] {
+    width: 100%;
+}
+
+[sizebntL2] {
+    width: 100%;
+}
+
+[fontsizeOL] {
+    font-size: 17px;
+}
