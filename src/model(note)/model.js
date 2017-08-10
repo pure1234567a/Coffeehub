@@ -7,7 +7,12 @@ Product = {
             subcate: string
         }
     ],
-    image: string,
+    image: [
+        {
+            url: string,
+            id: string
+        }
+    ],
     shop_id: objectId,
     price: number
 }
@@ -19,7 +24,7 @@ Shop = {
         {
             address: string,
             district: string,
-            provice: string,
+            province: string,
             postcode: string
         }
     ],

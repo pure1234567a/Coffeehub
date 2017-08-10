@@ -7,137 +7,83 @@
   <ion-grid>
     <ion-row>
       <ion-col col-6 class="borderCalcS">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-12 class="borderbottomHS">
-              <h1 class="fontsizeH1menulistHS">Menu list</h1>
-            </ion-col>
-            <ion-grid>
-              <ion-row>
-                <ion-col col-12>
-                  <ion-scroll scrollY="true" class="heightscrollboxmenulistHS ">
-                    <ion-grid>
-                      <ion-row>
-                        <ion-col col-12>
-                          <ion-grid>
-                            <ion-row>
-                              <ion-col col-12 class="borderbottomHS">
-                                <ion-list>
-                                  <button ion-button icon-only class="colorbntHS">
-                            <ion-icon name="close"></ion-icon>
-                        </button>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
-                                  </ion-item>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">Amount</ion-label>
-                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
-                                      <ion-option selected value="one">1</ion-option>
-                                      <ion-option value="two">2</ion-option>
-                                      <ion-option value="three">3</ion-option>
-                                      <ion-option value="four">4</ion-option>
-                                      <ion-option value="five">5</ion-option>
-                                      <ion-option value="six">6</ion-option>
-                                      <ion-option value="seven">7</ion-option>
-                                      <ion-option value="eight">8</ion-option>
-                                      <ion-option value="nine">9</ion-option>
-                                      <ion-option value="ten">10</ion-option>
-                                    </ion-select>
-                                  </ion-item>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">Sweetness</ion-label>
-                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
-                                      <ion-option value="lo">Low</ion-option>
-                                      <ion-option selected value="me">Medium</ion-option>
-                                      <ion-option value="hi">High</ion-option>
-                                    </ion-select>
-                                  </ion-item>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">Degrees</ion-label>
-                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
-                                      <ion-option selected value="r">regular</ion-option>
-                                      <ion-option value="ha">Half-caf</ion-option>
-                                      <ion-option value="de">De-caf</ion-option>
-                                    </ion-select>
-                                  </ion-item>
-                                </ion-list>
-                              </ion-col>
-                            </ion-row>
-                          </ion-grid>
-                        </ion-col>
-                      </ion-row>
-                    </ion-grid>
-                    <ion-grid>
-                      <ion-row>
-                        <ion-col col-12>
-                          <ion-grid>
-                            <ion-row>
-                              <ion-col col-12 class="borderbottomHS">
-                                <ion-list>
-                                  <button ion-button icon-only class="colorbntHS">
-                                      <ion-icon name="close"></ion-icon>
-                                  </button>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
-                                  </ion-item>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">Amount</ion-label>
-                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
-                                      <ion-option selected value="one">1</ion-option>
-                                      <ion-option value="two">2</ion-option>
-                                      <ion-option value="three">3</ion-option>
-                                      <ion-option value="four">4</ion-option>
-                                      <ion-option value="five">5</ion-option>
-                                      <ion-option value="six">6</ion-option>
-                                      <ion-option value="seven">7</ion-option>
-                                      <ion-option value="eight">8</ion-option>
-                                      <ion-option value="nine">9</ion-option>
-                                      <ion-option value="ten">10</ion-option>
-                                    </ion-select>
-                                  </ion-item>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">Sweetness</ion-label>
-                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
-                                      <ion-option value="lo">Low</ion-option>
-                                      <ion-option selected value="me">Medium</ion-option>
-                                      <ion-option value="hi">High</ion-option>
-                                    </ion-select>
-                                  </ion-item>
-                                  <ion-item>
-                                    <ion-label class="fontsizedetailHS">Degrees</ion-label>
-                                    <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
-                                      <ion-option selected value="r">regular</ion-option>
-                                      <ion-option value="ha">Half-caf</ion-option>
-                                      <ion-option value="de">De-caf</ion-option>
-                                    </ion-select>
-                                  </ion-item>
-                                </ion-list>
-                              </ion-col>
-                            </ion-row>
-                          </ion-grid>
-                        </ion-col>
-                      </ion-row>
-                    </ion-grid>
-                  </ion-scroll>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-row>
-        </ion-grid>
+        <ion-list>
+          <ion-list-header>
+            <ion-row>
+              <ion-col col-6 verti-align>
+                <h1 align-items-stretch>Menu list</h1>
+              </ion-col>
+              <ion-col col-6 text-right>
+                <button ion-button round icon-start>
+                  <ion-icon name="ios-trash"></ion-icon>Clear all
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-list-header>
+        </ion-list>
+         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
+          <ion-list text-center>
+            <ion-card *ngFor="let order of [1,2,3,4,5]">
+              <ion-card-header>
+                <ion-row>
+                  <ion-col col-10>
+                    <span align-items-center><h2>Product Name......</h2></span>
+                  </ion-col>
+                  <ion-col col-2 text-right>
+                    <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
+                    </button>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-list>
+                  <ion-item>
+                    <ion-label color="primary">Amount</ion-label>
+                    <ion-input type="number" text-right margin-right></ion-input>
+                    <button ion-button color="danger" item-right><ion-icon name="ios-remove"></ion-icon>
+                    </button>
+                    <button ion-button color="secondary" item-right no-margin no-padding><ion-icon name="ios-add"></ion-icon>
+                    </button>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label color="primary">Sweetness level</ion-label>
+                    <ion-select [(ngModel)]="Sweetness" interface="popover">
+                      <ion-option value="lo">Low</ion-option>
+                      <ion-option selected value="me">Medium</ion-option>
+                      <ion-option value="hi">High</ion-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label color="primary">Amount of caffeine</ion-label>
+                    <ion-select [(ngModel)]="Degrees" interface="popover">
+                      <ion-option selected value="r">regular</ion-option>
+                      <ion-option value="ha">Half-caf</ion-option>
+                      <ion-option value="de">De-caf</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>
+        </ion-scroll> 
       </ion-col>
       <ion-col col-6>
         <ion-grid>
           <ion-row>
             <ion-col col-12>
-              <ion-item class="fontsizebntnumCalcS">
-                <h1 class = "fontsizetotalCalcS">Total</h1>
-                <h1 class = "fontsizetotalCalcS">Cash : 30 bath</h1>
-                <h1 class = "fontsizetotalCalcS">Cup Coins : 1 Cup Coins</h1>
+              <ion-item>
+                <ion-label color="primary">Total cash :</ion-label>
+                 <ion-input placeholder="" readonly></ion-input> 
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary">Total Cup Coins :</ion-label>
+                 <ion-input placeholder="" readonly></ion-input> 
               </ion-item>
             </ion-col>
             <ion-col col-12>
               <ion-item class="fontsizebntnumCalcS">
-                <ion-input type="number" placeholder="Number Input with no label"></ion-input>
+                <ion-label color="primary">received :</ion-label>
+                <ion-input type="number" placeholder="input amount received" clearInput></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -154,23 +100,37 @@
               <button ion-button block outline class="fontsizebntnumCalcS">2</button>
               <button ion-button block outline class="fontsizebntnumCalcS">5</button>
               <button ion-button block outline class="fontsizebntnumCalcS">8</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">CE</button>
+              <button ion-button block outline class="fontsizebntnumCalcS">00</button>
             </ion-col>
             <ion-col col-4>
               <button ion-button block outline class="fontsizebntnumCalcS">3</button>
               <button ion-button block outline class="fontsizebntnumCalcS">6</button>
               <button ion-button block outline class="fontsizebntnumCalcS">8</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">C</button>
+              <button ion-button block outline class="fontsizebntnumCalcS">
+                   <ion-icon name="md-backspace"></ion-icon>
+              </button>
             </ion-col>
           </ion-row>
         </ion-grid>
         <ion-grid>
           <ion-row>
-            <ion-col col-12>
-              <button ion-button full class = "sizebntCalcS" (click)="gotocalculate()">Pay with Cash</button>
-              <button ion-button full class = "sizebntCalcS">Pay with Cup Coins</button>
+            <ion-col>
+              <button ion-button icon-left full class="sizebntCalcS">
+                    <ion-icon name="ios-cash-outline"></ion-icon>
+                    Pay with Cash
+                  </button>
             </ion-col>
           </ion-row>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-left full class="sizebntCalcS">
+                    <ion-icon name="ios-cafe-outline"></ion-icon>
+                    Pay with Cup Coins
+                  </button>
+            </ion-col>
+          </ion-row>
+          <!-- <button ion-button icon-left full class="sizebntCalcS" (click)="gotocalculate()"><ion-icon name="ios-cafe-outline">Pay with Cash</button>
+              <button ion-button icon-left full class="sizebntCalcS"><ion-icon name="ios-cafe-outline"></ion-icon>Pay with Cup Coins</button> -->
         </ion-grid>
       </ion-col>
     </ion-row>
