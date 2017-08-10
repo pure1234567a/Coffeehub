@@ -55,7 +55,8 @@
             "image": "http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg",
             "name": "กาแฟร้อน",
             "shop_id": "000001",
-            "price": 85
+            "price": 85,
+            "_id": "1234567890"
         },
         {
             "category": [
@@ -68,7 +69,8 @@
             "image": "https://www.monin.com/us/media/catalog/product/cache/1/image/e8946618865700cddab2a90551e0840b/C/a/Caramel_Iced_Coffee-20161028082802_6.png",
             "name": "กาแฟเย็น",
             "shop_id": "000001",
-            "price": 100
+            "price": 100,
+            "_id": "1234567891"
         },
         {
             "category": [
@@ -81,7 +83,8 @@
             "image": "http://www.howtomakeorangejuice.com/files/photos/Orange_Juice_Recipes_Copyright_2012.jpg",
             "name": "น้ำส้ม",
             "shop_id": "000001",
-            "price": 40
+            "price": 40,
+            "_id": "1234567892"
         },
         {
             "category": [
@@ -94,7 +97,8 @@
             "image": "http://news.psu.edu/sites/default/files/styles/threshold-992/public/2green%20tea%20iStock%20Spiderplay.jpg?itok=yZp4Ohyb",
             "name": "Green Tea",
             "shop_id": "000001",
-            "price": 60
+            "price": 60,
+            "_id": "1234567893"
         },
         {
             "category": [
@@ -107,7 +111,8 @@
             "image": "https://i.pinimg.com/736x/38/9a/c6/389ac649b5dc8f92969f513ce75d6f43--fun-drinks-easy-drinks-alcohol.jpg",
             "name": "พั้นช์",
             "shop_id": "000001",
-            "price": 60
+            "price": 60,
+            "_id": "1234567894"
         },
         {
             "category": [
@@ -120,7 +125,8 @@
             "image": "http://food.mthai.com/app/uploads/2015/09/tum-tard-tumzab-tumza-1024x683.jpg",
             "name": "ตำถาด",
             "shop_id": "000001",
-            "price": 200
+            "price": 200,
+            "_id": "1234567895"
         },
         {
             "category": [
@@ -133,7 +139,8 @@
             "image": "https://cdn.daysoftheyear.com/wp-content/images/ice-cream-for-breakfast-day1-e1422793190507.jpg",
             "name": "Ice Cream",
             "shop_id": "000001",
-            "price": 120
+            "price": 120,
+            "_id": "1234567896"
         }
     ]
 }
