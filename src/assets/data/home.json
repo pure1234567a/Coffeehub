@@ -52,7 +52,7 @@
                     "subcate": "coffee"
                 }
             ],
-            "image": "./assets/590.jpg",
+            "image": "http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg",
             "name": "กาแฟร้อน",
             "shop_id": "000001",
             "price": 85
@@ -65,7 +65,7 @@
                     "subcate": "coffee"
                 }
             ],
-            "image": "./assets/590.jpg",
+            "image": "https://www.monin.com/us/media/catalog/product/cache/1/image/e8946618865700cddab2a90551e0840b/C/a/Caramel_Iced_Coffee-20161028082802_6.png",
             "name": "กาแฟเย็น",
             "shop_id": "000001",
             "price": 100
@@ -78,10 +78,36 @@
                     "subcate": "softdrink"
                 }
             ],
-            "image": "./assets/590.jpg",
+            "image": "http://www.howtomakeorangejuice.com/files/photos/Orange_Juice_Recipes_Copyright_2012.jpg",
             "name": "น้ำส้ม",
             "shop_id": "000001",
             "price": 40
+        },
+        {
+            "category": [
+                {
+                    "name": "Food",
+                    "detail": "sss",
+                    "subcate": "none"
+                }
+            ],
+            "image": "http://food.mthai.com/app/uploads/2015/09/tum-tard-tumzab-tumza-1024x683.jpg",
+            "name": "ตำถาด",
+            "shop_id": "000001",
+            "price": 200
+        },
+        {
+            "category": [
+                {
+                    "name": "Dessert",
+                    "detail": "00s0s0",
+                    "subcate": "none"
+                }
+            ],
+            "image": "https://cdn.daysoftheyear.com/wp-content/images/ice-cream-for-breakfast-day1-e1422793190507.jpg",
+            "name": "Ice Cream",
+            "shop_id": "000001",
+            "price": 120
         }
     ]
 }

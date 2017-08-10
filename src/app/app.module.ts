@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -18,9 +19,8 @@ import { PromotionPage } from '../pages/promotion/promotion';
 import { CalculatePage } from '../pages/calculate/calculate';
 import { ReceiptPage } from '../pages/receipt/receipt';
 
-// import { HomeService } from '../pages/home/home.service';
-
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { HomeService } from "../pages/home/home.service";
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -44,6 +44,7 @@ const cloudSettings: CloudSettings = {
     ReceiptPage,
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     CloudModule.forRoot(cloudSettings)
@@ -66,7 +67,7 @@ const cloudSettings: CloudSettings = {
   providers: [
     StatusBar,
     SplashScreen,
-    // HomeService,
+    HomeService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
