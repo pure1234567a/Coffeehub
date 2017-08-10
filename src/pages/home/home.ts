@@ -1,3 +1,4 @@
+import { parseDate } from 'ionic-angular/umd/util/datetime-util';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalculatePage } from "../calculate/calculate";
@@ -17,13 +18,12 @@ export class HomePage {
   prod_dessert: any = [];
   prod_food: any = [];
   private orderDaft: any = [];
+  private orders: Array<any> = [];
 
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
     private storage: Storage
   ) {
-
-    this.createDraftOrder();
 
   }
   gotocalculate() {
@@ -68,34 +68,53 @@ export class HomePage {
 
 
   }
-  createDraftOrder() {
-    this.orderDaft = {
-      'item': [
-        {
-          'name': '',
-          'product_id': '',
-          'amount': 0,
-          'qty': 0,
-        }
-      ],
-      'shop_id': '',
-      'date': new Date(),
-      'emp_id': ''
-    };
-  }
+
+
+  // createDraftOrder() {
+  //   this.orderDaft = {
+  //     'item': [
+  //       {
+  //         'name': '',
+  //         'product_id': '',
+  //         'amount': 0,
+  //         'qty': 0,
+  //       }
+  //     ],
+  //     'shop_id': '',
+  //     'date': new Date(),
+  //     'emp_id': ''
+  //   };
+  // }
   addtoOrder(item) {
     console.log(item);
-    if (!this.orderDaft.item) {
-      this.orderDaft.item.product_id.put(item._id);
-      this.orderDaft.item.qty.put(1);
-      this.orderDaft.item.amount.put(item.price);
-    } else if (this.orderDaft.item && item._id != this.orderDaft.item._id) {
-      this.orderDaft.item.product_id.put(item._id);
-      this.orderDaft.item.qty.put(1);
-      this.orderDaft.item.amount.put(item.price);
-    } else if (this.orderDaft.item && item._id == this.orderDaft.item._id) {
-
+    let indexOfArr = this.orders.findIndex(i => i._id === item._id);
+    console.log(indexOfArr);
+    if (indexOfArr == -1) {
+      item.amount = 1;
+      this.orders.push(item);
+    } else {
+      console.log('HAVE');
+      this.orders[indexOfArr].amount = parseInt(this.orders[indexOfArr].amount) + 1;
     }
 
+    console.log(this.orders);
+  }
+
+  deleteOrder(orderID) {
+    console.log(orderID);
+    for (let i = 0; i < this.orders.length; i++) {
+      if (this.orders[i]._id == orderID) {
+        this.orders.splice(i, 1);
+        break;
+      }
+    }
+  }
+  addqtyitem(orderID2) {
+    for (let i = 0; i < this.orders.length; i++) {
+      if (this.orders[i]._id == orderID2) {
+        this.orders[i].amount += 1;
+        break;
+      }
+    }
   }
 }

@@ -26,14 +26,14 @@
         </ion-list>
         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
           <ion-list text-center>
-            <ion-card *ngFor="let order of [1,2,3,4,5]">
+            <ion-card *ngFor="let order of orders">
               <ion-card-header>
                 <ion-row>
                   <ion-col col-10 text-left>
-                    <h2>Product Name......</h2>
+                    <h2>{{order.name}}</h2>
                   </ion-col>
                   <ion-col col-2 text-center>
-                    <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
+                    <button ion-button color="danger" icon-only small (click)="deleteOrder(order._id)"><ion-icon name="md-close"></ion-icon>
 </button>
                   </ion-col>
                 </ion-row>
@@ -42,25 +42,26 @@
                 <ion-list>
                   <ion-item>
                     <ion-label color="primary">Amount</ion-label>
-                    <ion-input type="number" text-right margin-right></ion-input>
-                    <button ion-button color="danger" item-right><ion-icon name="ios-remove"></ion-icon>
-</button><button ion-button color="secondary" item-right no-margin no-padding><ion-icon name="ios-add"></ion-icon>
+                    <ion-input type="number" [(ngModel)]="order.amount" text-right></ion-input>
+                    <!-- <span>{{order.amount}}</span> -->
+                    <button ion-button color="danger" item-right (click)="addqtyitem(order._id)"><ion-icon name=" ios-remove "></ion-icon>
+</button><button ion-button color="secondary " item-right no-margin no-padding><ion-icon name="ios-add "></ion-icon>
 </button>
                   </ion-item>
-                  <ion-item>
-                    <ion-label color="primary">Sweetness level</ion-label>
-                    <ion-select [(ngModel)]="Sweetness" interface="popover">
-                      <ion-option value="lo">Low</ion-option>
-                      <ion-option selected value="me">Medium</ion-option>
-                      <ion-option value="hi">High</ion-option>
+                  <ion-item [hidden]="order.category[0].subcate !=='coffee' ">
+                    <ion-label color="primary ">Sweetness level</ion-label>
+                    <ion-select [(ngModel)]="Sweetness " interface="popover ">
+                      <ion-option value="lo ">Low</ion-option>
+                      <ion-option selected value="me ">Medium</ion-option>
+                      <ion-option value="hi ">High</ion-option>
                     </ion-select>
                   </ion-item>
-                  <ion-item>
-                    <ion-label color="primary">Amount of caffeine</ion-label>
-                    <ion-select [(ngModel)]="Degrees" interface="popover">
-                      <ion-option selected value="r">regular</ion-option>
-                      <ion-option value="ha">Half-caf</ion-option>
-                      <ion-option value="de">De-caf</ion-option>
+                  <ion-item [hidden]="order.category[0].subcate !=='coffee' ">
+                    <ion-label color="primary ">Amount of caffeine</ion-label>
+                    <ion-select [(ngModel)]="Degrees " interface="popover ">
+                      <ion-option selected value="r ">regular</ion-option>
+                      <ion-option value="ha ">Half-caf</ion-option>
+                      <ion-option value="de ">De-caf</ion-option>
                     </ion-select>
                   </ion-item>
                 </ion-list>
@@ -70,31 +71,31 @@
         </ion-scroll>
       </ion-col>
       <ion-col col-7>
-        <ion-segment [(ngModel)]="menu" color="secondary">
-          <ion-segment-button value="drink" alignText ng-selected="true">
+        <ion-segment [(ngModel)]="menu " color="secondary ">
+          <ion-segment-button value="drink " alignText ng-selected="true ">
             Drink
           </ion-segment-button>
-          <ion-segment-button value="dessert" alignText>
+          <ion-segment-button value="dessert " alignText>
             Dessert
           </ion-segment-button>
-          <ion-segment-button value="food" alignText>
+          <ion-segment-button value="food " alignText>
             Food
           </ion-segment-button>
         </ion-segment>
-        <ion-grid [ngSwitch]="menu" gridmenu>
+        <ion-grid [ngSwitch]="menu " gridmenu>
           <ion-row row2>
             <ion-col col-12>
-              <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize2>
-                <ion-list *ngSwitchCase="'drink'">
-                  <ion-card *ngFor="let products of prod_drink" imgcard (click)="addtoOrder(products);">
+              <ion-scroll scrollY="true " class="heightscrollboxmenulistHS " scrollsize2>
+                <ion-list *ngSwitchCase=" 'drink' ">
+                  <ion-card *ngFor="let products of prod_drink " imgcard (click)="addtoOrder(products); ">
                     <ion-card-content card-content>
                       <ion-row>
                         <ion-col headTxt>
                           {{products.name}}
                         </ion-col>
                       </ion-row>
-                      <div class="crop">
-                        <img src="{{products.image}}" />
+                      <div class="crop ">
+                        <img src="{{products.image}} " />
                       </div>
                       <ion-row>
                         <ion-col contentTxt>
@@ -104,16 +105,16 @@
                     </ion-card-content>
                   </ion-card>
                 </ion-list>
-                <ion-list *ngSwitchCase="'dessert'">
-                  <ion-card *ngFor="let desserts of prod_dessert" imgcard>
+                <ion-list *ngSwitchCase=" 'dessert' ">
+                  <ion-card *ngFor="let desserts of prod_dessert " imgcard>
                     <ion-card-content card-content>
                       <ion-row>
                         <ion-col headTxt>
                           {{desserts.name}}
                         </ion-col>
                       </ion-row>
-                      <div class="crop">
-                        <img src="{{desserts.image}}" />
+                      <div class="crop ">
+                        <img src="{{desserts.image}} " />
                       </div>
                       <ion-row>
                         <ion-col contentTxt>
@@ -124,16 +125,16 @@
                   </ion-card>
                 </ion-list>
 
-                <ion-list *ngSwitchCase="'food'">
-                  <ion-card *ngFor="let foods of prod_food" imgcard>
+                <ion-list *ngSwitchCase=" 'food' ">
+                  <ion-card *ngFor="let foods of prod_food " imgcard>
                     <ion-card-content card-content>
                       <ion-row>
                         <ion-col headTxt>
                           {{foods.name}}
                         </ion-col>
                       </ion-row>
-                      <div class="crop">
-                        <img src="{{foods.image}}" />
+                      <div class="crop ">
+                        <img src="{{foods.image}} " />
                       </div>
                       <ion-row>
                         <ion-col contentTxt>
@@ -148,15 +149,15 @@
                 <ion-row>
                   <ion-col span-2>
                     <button ion-button icon-left full round>
-  <ion-icon name="md-qr-scanner"></ion-icon>
+  <ion-icon name="md-qr-scanner "></ion-icon>
   QR Scan
 </button>
                   </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col>
-                    <button ion-button icon-left full (click)="gotoCalculate()" round>
-  <ion-icon name="md-calculator"></ion-icon>
+                    <button ion-button icon-left full (click)="gotoCalculate() " round>
+  <ion-icon name="md-calculator "></ion-icon>
   Calculate
 </button>
                   </ion-col>
@@ -164,7 +165,7 @@
                 <ion-row>
                   <ion-col>
                     <button ion-button icon-left full round>
-  <ion-icon name="ios-cafe-outline"></ion-icon>
+  <ion-icon name="ios-cafe-outline "></ion-icon>
   Cup Coins
 </button>
                   </ion-col>
