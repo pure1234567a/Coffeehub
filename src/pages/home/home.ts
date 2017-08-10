@@ -109,11 +109,24 @@ export class HomePage {
       }
     }
   }
-  addqtyitem(orderID2) {
+  increseqtyitem(orderID2) {
+    console.log(orderID2);
     for (let i = 0; i < this.orders.length; i++) {
       if (this.orders[i]._id == orderID2) {
-        this.orders[i].amount += 1;
+        this.orders[i].amount = parseInt(this.orders[i].amount) + 1;
         break;
+      }
+    }
+  }
+  decreseqtyitem(orderID2) {
+    console.log(orderID2);
+    for (let i = 0; i < this.orders.length; i++) {
+      if (this.orders[i]._id == orderID2) {
+        if (parseInt(this.orders[i].amount) > 1) {
+          this.orders[i].amount = parseInt(this.orders[i].amount) - 1;
+          break;
+        }
+
       }
     }
   }
