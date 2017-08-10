@@ -86,6 +86,32 @@
         {
             "category": [
                 {
+                    "name": "Drink",
+                    "detail": "sss",
+                    "subcate": "softdrink"
+                }
+            ],
+            "image": "http://news.psu.edu/sites/default/files/styles/threshold-992/public/2green%20tea%20iStock%20Spiderplay.jpg?itok=yZp4Ohyb",
+            "name": "Green Tea",
+            "shop_id": "000001",
+            "price": 60
+        },
+        {
+            "category": [
+                {
+                    "name": "Drink",
+                    "detail": "sss",
+                    "subcate": "softdrink"
+                }
+            ],
+            "image": "https://i.pinimg.com/736x/38/9a/c6/389ac649b5dc8f92969f513ce75d6f43--fun-drinks-easy-drinks-alcohol.jpg",
+            "name": "พั้นช์",
+            "shop_id": "000001",
+            "price": 60
+        },
+        {
+            "category": [
+                {
                     "name": "Food",
                     "detail": "sss",
                     "subcate": "none"

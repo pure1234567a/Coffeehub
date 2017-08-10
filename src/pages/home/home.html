@@ -32,16 +32,14 @@
             <ion-card *ngFor="let order of [1,2,3,4,5]">
               <ion-card-header>
                 <ion-row>
-                  <ion-col col-10>
-                    <span align-items-center><h2>Product Name......</h2></span>
+                  <ion-col col-10 text-left>
+                    <h2>Product Name......</h2>
                   </ion-col>
-                  <ion-col col-2 text-right>
+                  <ion-col col-2 text-center>
                     <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
 </button>
                   </ion-col>
                 </ion-row>
-
-
               </ion-card-header>
               <ion-card-content>
                 <ion-list>
@@ -101,37 +99,60 @@
               <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize2>
                 <ion-list *ngSwitchCase="'drink'">
                   <ion-card *ngFor="let products of prod_drink" imgcard>
-                    <img src="{{products.image}}" imgstyle>
-                    <ion-card-header cardHeader>
-                      {{products.name}}
-                    </ion-card-header>
-                    <ion-card-content prdPosition>
-
-                      {{products.price | number}}.-
+                    <ion-card-content card-content>
+                      <ion-row>
+                        <ion-col headTxt>
+                          {{products.name}}
+                        </ion-col>
+                      </ion-row>
+                      <div class="crop">
+                        <img src="{{products.image}}" />
+                      </div>
+                      <ion-row>
+                        <ion-col contentTxt>
+                          {{products.price | number}}.-
+                        </ion-col>
+                      </ion-row>
                     </ion-card-content>
                   </ion-card>
                 </ion-list>
 
                 <ion-list *ngSwitchCase="'dessert'">
-                  <ion-card *ngFor="let desserts of prod_dessert" style="background-image: url('{{desserts.image}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
-                    imgcard>
-                    <ion-card-header cardHeader>
-                      {{desserts.name}}
-                    </ion-card-header>
-                    <ion-card-content prdPosition>
-                      {{desserts.price | number}}.-
+                  <ion-card *ngFor="let desserts of prod_dessert" imgcard>
+                    <ion-card-content card-content>
+                      <ion-row>
+                        <ion-col headTxt>
+                          {{desserts.name}}
+                        </ion-col>
+                      </ion-row>
+                      <div class="crop">
+                        <img src="{{desserts.image}}" />
+                      </div>
+                      <ion-row>
+                        <ion-col contentTxt>
+                          {{desserts.price | number}}.-
+                        </ion-col>
+                      </ion-row>
                     </ion-card-content>
                   </ion-card>
                 </ion-list>
 
                 <ion-list *ngSwitchCase="'food'">
-                  <ion-card *ngFor="let foods of prod_food" style="background-image: url('{{foods.image}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
-                    imgcard>
-                    <ion-card-header cardHeader>
-                      {{foods.name}}
-                    </ion-card-header>
-                    <ion-card-content prdPosition>
-                      {{foods.price | number}}.-
+                  <ion-card *ngFor="let foods of prod_food" imgcard>
+                    <ion-card-content card-content>
+                      <ion-row>
+                        <ion-col headTxt>
+                          {{foods.name}}
+                        </ion-col>
+                      </ion-row>
+                      <div class="crop">
+                        <img src="{{foods.image}}" />
+                      </div>
+                      <ion-row>
+                        <ion-col contentTxt>
+                          {{foods.price | number}}.-
+                        </ion-col>
+                      </ion-row>
                     </ion-card-content>
                   </ion-card>
                 </ion-list>
@@ -141,7 +162,7 @@
               <ion-grid>
                 <ion-row>
                   <ion-col span-2>
-                    <button ion-button icon-left full>
+                    <button ion-button icon-left full round>
   <ion-icon name="md-qr-scanner"></ion-icon>
   QR Scan
 </button>
@@ -149,7 +170,7 @@
                 </ion-row>
                 <ion-row>
                   <ion-col>
-                    <button ion-button icon-left full (click)="gotoCalculate()">
+                    <button ion-button icon-left full (click)="gotoCalculate()" round>
   <ion-icon name="md-calculator"></ion-icon>
   Calculate
 </button>
@@ -157,9 +178,15 @@
                 </ion-row>
                 <ion-row>
                   <ion-col>
+<<<<<<< HEAD
                     <button ion-button icon-left full>
   <ion-icon name="ios-cafe-outline"></ion-icon>
   Cup Coins
+=======
+                    <button ion-button icon-left full round>
+  <ion-icon name="logo-usd"></ion-icon>
+  Sell cupcoin
+>>>>>>> 486098f1fac3a3fc803c8b6e82b45b4c44c2d588
 </button>
                   </ion-col>
                 </ion-row>
