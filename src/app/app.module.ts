@@ -22,6 +22,7 @@ import { ReceiptPage } from '../pages/receipt/receipt';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HomeService } from "../pages/home/home.service";
 
+import { IonicStorageModule } from '@ionic/storage';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -47,7 +48,8 @@ const cloudSettings: CloudSettings = {
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings)
+    CloudModule.forRoot(cloudSettings),
+    IonicStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

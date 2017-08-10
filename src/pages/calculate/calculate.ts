@@ -21,9 +21,9 @@ export class CalculatePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalculatePage');
   }
-  
-  gotocalculate() {
-    this.navCtrl.push (ReceiptPage)
+
+  gotoReceiptpage() {
+    this.navCtrl.push(ReceiptPage)
   }
 
 }

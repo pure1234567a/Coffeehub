@@ -7,6 +7,38 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <ion-grid>
+    <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize2>
+      <ion-list>
+        <ion-card *ngFor="let products of prod_drink">
+
+        </ion-card>
+      </ion-list>
+    </ion-scroll>
+
+  </ion-grid>
+
+  <!-- <ion-card>
+
+    <ion-card-header>
+      Card Header
+    </ion-card-header>
+
+    <ion-card-content>
+      
+    </ion-card-content>
+
+  </ion-card> -->
+
+
+
+
+
+
+
+
+
+  <!-- 
   <h1 class="fontsizeOS2">Order list</h1>
   <ion-grid>
     <ion-row>
@@ -14,7 +46,7 @@
         <ion-grid>
           <ion-row>
             <ion-col col-4>
-              <h1 class = "fontsizeOS">
+              <h1 class="fontsizeOS">
                 Order from : pure
               </h1>
             </ion-col>
@@ -125,7 +157,7 @@
         <ion-grid>
           <ion-row>
             <ion-col col-4>
-              <h1 class = "fontsizeOS">
+              <h1 class="fontsizeOS">
                 Order from : mix
               </h1>
             </ion-col>
@@ -184,5 +216,5 @@
         </ion-grid>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>

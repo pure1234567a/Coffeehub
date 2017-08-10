@@ -14,14 +14,14 @@
                 <h1 align-items-stretch>Menu list</h1>
               </ion-col>
               <ion-col col-6 text-right>
-                <button ion-button round icon-start >
+                <button ion-button round icon-start>
                   <ion-icon name="ios-trash"></ion-icon>Clear all
                 </button>
               </ion-col>
             </ion-row>
           </ion-list-header>
         </ion-list>
-         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
+        <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
           <ion-list text-center>
             <ion-card *ngFor="let order of [1,2,3,4,5]">
               <ion-card-header>
@@ -65,7 +65,7 @@
               </ion-card-content>
             </ion-card>
           </ion-list>
-        </ion-scroll> 
+        </ion-scroll>
       </ion-col>
       <ion-col col-6>
         <ion-grid>
@@ -73,11 +73,11 @@
             <ion-col col-12>
               <ion-item>
                 <ion-label color="primary">Total cash :</ion-label>
-                 <ion-input placeholder="" readonly></ion-input> 
+                <ion-input placeholder="" readonly></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label color="primary">Total Cup Coins :</ion-label>
-                 <ion-input placeholder="" readonly></ion-input> 
+                <ion-input placeholder="" readonly></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-12>
@@ -115,7 +115,7 @@
         <ion-grid>
           <ion-row>
             <ion-col>
-              <button ion-button icon-left full round class="sizebntCalcS">
+              <button ion-button icon-left full round class="sizebntCalcS" (click)="gotoReceiptpage()">
                     <ion-icon name="ios-cash-outline"></ion-icon>
                     Pay with Cash
                   </button>

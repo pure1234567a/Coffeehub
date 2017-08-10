@@ -1,9 +1,11 @@
-import { Component, style } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalculatePage } from "../calculate/calculate";
 import { HomeModel } from './home.model';
 import 'rxjs/Rx';
+
 import { HomeService } from "./home.service";
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -14,10 +16,14 @@ export class HomePage {
   prod_drink: any = [];
   prod_dessert: any = [];
   prod_food: any = [];
-  private styleTxt: string = '';
+  private orderDaft: any = [];
+
   constructor(public navCtrl: NavController,
-    public homeservice: HomeService
+    public homeservice: HomeService,
+    private storage: Storage
   ) {
+
+    this.createDraftOrder();
 
   }
   gotocalculate() {
@@ -53,6 +59,31 @@ export class HomePage {
     return list.category[0].name == 'Food';
   }
   gotoCalculate() {
-    this.navCtrl.push(CalculatePage);
+    if (this.orderDaft.length) {
+
+
+      // this.storage.setItem('order', )
+      this.navCtrl.push(CalculatePage);
+    }
+
+
+  }
+  createDraftOrder() {
+    this.orderDaft = {
+      'item': [
+        {
+          'product_id': '',
+          'amount': 0,
+          'qty': 0,
+        }
+      ],
+      'shop_id': '',
+      'date': new Date(),
+      'emp_id': ''
+    };
+  }
+  addtoOrder(item) {
+    console.log(item);
+    // this.orderDaft.item.put();
   }
 }

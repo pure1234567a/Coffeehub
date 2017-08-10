@@ -86,7 +86,7 @@
             <ion-col col-12>
               <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize2>
                 <ion-list *ngSwitchCase="'drink'">
-                  <ion-card *ngFor="let products of prod_drink" imgcard>
+                  <ion-card *ngFor="let products of prod_drink" imgcard (click)="addtoOrder(products);">
                     <ion-card-content card-content>
                       <ion-row>
                         <ion-col headTxt>
