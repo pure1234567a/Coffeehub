@@ -6,11 +6,9 @@
     <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-grid gridheight>
     <ion-row colheight>
-      <!-- <ion-scroll item-height="100%" item-width="100%"> -->
       <ion-col col-5>
         <ion-list>
           <ion-list-header>
@@ -27,7 +25,6 @@
           </ion-list-header>
         </ion-list>
         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
-          <!-- <ion-scroll scrollY="true" direction="xy" overflow-scroll="true"> -->
           <ion-list text-center>
             <ion-card *ngFor="let order of [1,2,3,4,5]">
               <ion-card-header>
@@ -69,30 +66,21 @@
                 </ion-list>
               </ion-card-content>
             </ion-card>
-            <!-- </ion-scroll> -->
           </ion-list>
         </ion-scroll>
       </ion-col>
-      <!-- </ion-scroll> -->
       <ion-col col-7>
-
-        <!-- <ion-slides pager> -->
         <ion-segment [(ngModel)]="menu" color="secondary">
           <ion-segment-button value="drink" alignText ng-selected="true">
-            <!-- <ion-icon name="ios-cafe" padding-right></ion-icon> -->
             Drink
           </ion-segment-button>
-
           <ion-segment-button value="dessert" alignText>
-            <!-- <ion-icon name="ios-cafe" padding-right></ion-icon> -->
             Dessert
           </ion-segment-button>
           <ion-segment-button value="food" alignText>
-            <!-- <ion-icon name="ios-cafe" padding-right></ion-icon> -->
             Food
           </ion-segment-button>
         </ion-segment>
-
         <ion-grid [ngSwitch]="menu" gridmenu>
           <ion-row row2>
             <ion-col col-12>
@@ -116,7 +104,6 @@
                     </ion-card-content>
                   </ion-card>
                 </ion-list>
-
                 <ion-list *ngSwitchCase="'dessert'">
                   <ion-card *ngFor="let desserts of prod_dessert" imgcard>
                     <ion-card-content card-content>
@@ -157,8 +144,6 @@
                   </ion-card>
                 </ion-list>
               </ion-scroll>
-
-
               <ion-grid>
                 <ion-row>
                   <ion-col span-2>
@@ -185,179 +170,10 @@
                   </ion-col>
                 </ion-row>
               </ion-grid>
-
             </ion-col>
           </ion-row>
-
         </ion-grid>
-
-
-
-        <!-- <ion-slide>
-            <ion-list>
-              <ion-list-header>
-                <ion-row>
-                  <h1>Drinks</h1>
-                </ion-row>
-              </ion-list-header>
-            </ion-list>
-
-            <ion-grid>
-              <ion-row>
-                <ion-col col-12>
-                  <ion-list>
-                    <ion-card *ngFor="let order of [1,2,3,4,5,6,7,8]" style="background-image: url('../../assets/590.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
-                      imgcard>
-                      <ion-card-header cardHeader>
-                        สินค้า 1
-                      </ion-card-header>
-                      <ion-card-content>
-                        45.-
-                      </ion-card-content>
-                    </ion-card>
-                  </ion-list>
-                </ion-col>
-              </ion-row>
-
-            </ion-grid>
-          </ion-slide>
-
-          <ion-slide style="background-color: blue">
-            <h2>Slide 2</h2>
-          </ion-slide>
-
-          <ion-slide style="background-color: red">
-            <h2>Slide 3</h2>
-          </ion-slide>
-
-        </ion-slides> -->
-
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>
-
-
-
-
-<!-- <ion-col col-12>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-12 class="borderbottomHS">
-            <h1 class="fontsizeH1menulistHS">Menu list</h1>
-            <button ion-button full class="bntclearHS">Clear all menu</button>
-          </ion-col>
-          <ion-grid>
-            <ion-row>
-              <ion-col col-12>
-                <ion-scroll scrollY="true" class="heightscrollboxmenulistHS ">
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col col-12>
-                        <ion-grid>
-                          <ion-row>
-                            <ion-col col-12 class="borderbottomHS">
-                              <ion-list>
-                                <button ion-button icon-only class="colorbntHS">
-                            <ion-icon name="close"></ion-icon>
-                        </button>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
-                                </ion-item>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">Amount</ion-label>
-                                  <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
-                                    <ion-option selected value="one">1</ion-option>
-                                    <ion-option value="two">2</ion-option>
-                                    <ion-option value="three">3</ion-option>
-                                    <ion-option value="four">4</ion-option>
-                                    <ion-option value="five">5</ion-option>
-                                    <ion-option value="six">6</ion-option>
-                                    <ion-option value="seven">7</ion-option>
-                                    <ion-option value="eight">8</ion-option>
-                                    <ion-option value="nine">9</ion-option>
-                                    <ion-option value="ten">10</ion-option>
-                                  </ion-select>
-                                </ion-item>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">Sweetness</ion-label>
-                                  <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
-                                    <ion-option value="lo">Low</ion-option>
-                                    <ion-option selected value="me">Medium</ion-option>
-                                    <ion-option value="hi">High</ion-option>
-                                  </ion-select>
-                                </ion-item>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">Degrees</ion-label>
-                                  <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
-                                    <ion-option selected value="r">regular</ion-option>
-                                    <ion-option value="ha">Half-caf</ion-option>
-                                    <ion-option value="de">De-caf</ion-option>
-                                  </ion-select>
-                                </ion-item>
-                              </ion-list>
-                            </ion-col>
-                          </ion-row>
-                        </ion-grid>
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col col-12>
-                        <ion-grid>
-                          <ion-row>
-                            <ion-col col-12 class="borderbottomHS">
-                              <ion-list>
-                                <button ion-button icon-only class="colorbntHS">
-                                      <ion-icon name="close"></ion-icon>
-                                  </button>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">กาแฟร้อน</ion-label>
-                                </ion-item>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">Amount</ion-label>
-                                  <ion-select class="fontsizedetailHS" [(ngModel)]="Amount">
-                                    <ion-option selected value="one">1</ion-option>
-                                    <ion-option value="two">2</ion-option>
-                                    <ion-option value="three">3</ion-option>
-                                    <ion-option value="four">4</ion-option>
-                                    <ion-option value="five">5</ion-option>
-                                    <ion-option value="six">6</ion-option>
-                                    <ion-option value="seven">7</ion-option>
-                                    <ion-option value="eight">8</ion-option>
-                                    <ion-option value="nine">9</ion-option>
-                                    <ion-option value="ten">10</ion-option>
-                                  </ion-select>
-                                </ion-item>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">Sweetness</ion-label>
-                                  <ion-select class="fontsizedetailHS" [(ngModel)]="Sweetness">
-                                    <ion-option value="lo">Low</ion-option>
-                                    <ion-option selected value="me">Medium</ion-option>
-                                    <ion-option value="hi">High</ion-option>
-                                  </ion-select>
-                                </ion-item>
-                                <ion-item>
-                                  <ion-label class="fontsizedetailHS">Degrees</ion-label>
-                                  <ion-select class="fontsizedetailHS" [(ngModel)]="Degrees">
-                                    <ion-option selected value="r">regular</ion-option>
-                                    <ion-option value="ha">Half-caf</ion-option>
-                                    <ion-option value="de">De-caf</ion-option>
-                                  </ion-select>
-                                </ion-item>
-                              </ion-list>
-                            </ion-col>
-                          </ion-row>
-                        </ion-grid>
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-                </ion-scroll>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-row>
-      </ion-grid>
-    </ion-col> -->
