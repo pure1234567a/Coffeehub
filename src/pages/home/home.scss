@@ -8,124 +8,6 @@
     border-color: darkgray;
 }
 
-.heightrowHS {
-    height: 100% !important;
-}
-
-.widthrowHS {
-    width: 100% !important;
-}
-
-.heightmenuHS {
-    height: 500px !important;
-}
-
-.margin-topmenuHS {
-    margin-top: -150px !important;
-}
-
-.heightbntHS {
-    height: 200px !important;
-}
-
-.widthbntHS {
-    width: 200px !important;
-}
-
-.heightslidepageHS {
-    height: 450px;
-}
-
-.heightscrollboxHS {
-    height: 450px;
-}
-
-.widthscrollboxHS {
-    width: 450px;
-}
-
-.h1toleftHS {
-    text-align: -webkit-left;
-}
-
-.margintoptextbntmenuHS {
-    font-size: 36px;
-    margin-top: -80px;
-}
-
-.marginbuttomtextbntmenuHS {
-    font-size: 36px;
-    margin-bottom: -80px;
-    margin-left: -20px;
-}
-
-.borderbottomh1menuHS {
-    border-bottom: solid;
-}
-
-.iconinheaderHS {
-    // margin-left: 930px;
-    font-size: 36px;
-}
-
-.heightheaderHS {
-    height: 1% !important;
-}
-
-.fontsizebntHS {
-    font-size: 36px;
-}
-
-.bordertopHS {
-    border-top: solid;
-    border-color: darkgray;
-}
-
-.fontsizeH1HS {
-    font-size: 42px;
-}
-
-.borderbottomHS {
-    border-bottom: solid !important; // border-color: darkgray ;
-}
-
-.fontsizemenulist {
-    border-bottom: solid !important; // border-color: darkgray ;
-}
-
-.fontsizeH1menulistHS {
-    font-size: 42px;
-}
-
-.fontsizemenulistHS {
-    font-size: 28px !important;
-}
-
-.fontsizedetailHS {
-    font-size: 28px !important;
-}
-
-.colorbntHS {
-    background: red;
-}
-
-.bntclearHS {
-    font-size: 36px;
-    height: 40px;
-}
-
-.heightscrollboxmenulistHS {
-    height: 100% !important;
-}
-
-.widthscrollboxmenulistHS {
-    width: 450px;
-}
-
-.heightbntcalandccHS {
-    height: 850% !important;
-}
-
 [verti-align] {
     display: flex!important;
     align-content: center!important;
@@ -144,13 +26,17 @@
     position: relative;
 }
 
+[borderCalcS] {
+    border-right: solid;
+    border-color: lightgray;
+}
+
 [colheight] {
     height: 99%;
 }
 
 [gridheight] {
-    height: 100% !important;
-    overflow: hidden;
+    height: 100% !important; // overflow: hidden;
 }
 
 .ion-scroll {
@@ -182,9 +68,8 @@
 [scrollsize2] {
     height: 100% !important;
 }
- 
+
 [prdPosition] {
-    // margin-left: 70%;
     font-weight: bold;
     font-size: 16px;
     color: black;
@@ -206,23 +91,6 @@
     display: inline-table;
 }
 
-.card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-}
-
-.card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: #fff;
-}
-
 [imgstyle] {
     text-align: center; // position: absolute;
     overflow: hidden !important; // margin: auto;
@@ -241,4 +109,12 @@
 .crop img {
     width: 250px;
     height: auto; // margin: -75px 0 0 -100px;
+}
+
+.toasttextcenter {
+    text-align: center;
+}
+
+[orderMenuHeader] {
+    margin-bottom: 5px;
 }

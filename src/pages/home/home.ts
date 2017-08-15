@@ -1,12 +1,11 @@
-import { parseDate } from 'ionic-angular/umd/util/datetime-util';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { CalculatePage } from "../calculate/calculate";
 import { HomeModel } from './home.model';
 import 'rxjs/Rx';
 
 import { HomeService } from "./home.service";
-import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -17,17 +16,16 @@ export class HomePage {
   prod_drink: any = [];
   prod_dessert: any = [];
   prod_food: any = [];
-  private orderDaft: any = [];
-  private orders: Array<any> = [];
+  public orders: Array<any> = [];
 
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
-    private storage: Storage
+    private toastCtrl: ToastController
   ) {
 
   }
   gotocalculate() {
-    this.navCtrl.push(CalculatePage)
+    this.navCtrl.push(CalculatePage);
   }
   ionViewDidLoad() {
     this.homeservice
@@ -59,32 +57,18 @@ export class HomePage {
     return list.category[0].name == 'Food';
   }
   gotoCalculate() {
-    if (this.orderDaft) {
-
-
-      // this.storage.setItem('order', )
-      this.navCtrl.push(CalculatePage);
+    if (this.orders.length) {
+      this.navCtrl.push(CalculatePage, { ord: this.orders });
+    } else {
+      let toast = this.toastCtrl.create({
+        message: 'No order to calculate',
+        duration: 3000,
+        position: 'middle',
+        cssClass: 'toasttextcenter'
+      });
+      toast.present();
     }
-
-
   }
-
-
-  // createDraftOrder() {
-  //   this.orderDaft = {
-  //     'item': [
-  //       {
-  //         'name': '',
-  //         'product_id': '',
-  //         'amount': 0,
-  //         'qty': 0,
-  //       }
-  //     ],
-  //     'shop_id': '',
-  //     'date': new Date(),
-  //     'emp_id': ''
-  //   };
-  // }
   addtoOrder(item) {
     console.log(item);
     let indexOfArr = this.orders.findIndex(i => i._id === item._id);
@@ -129,5 +113,8 @@ export class HomePage {
 
       }
     }
+  }
+  clearList() {
+    this.orders = [];
   }
 }

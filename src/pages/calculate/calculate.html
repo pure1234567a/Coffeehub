@@ -3,35 +3,36 @@
     <ion-title>calculate</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6 class="borderCalcS">
-        <ion-list>
+<ion-content>
+  <ion-grid no-padding gridheight>
+    <ion-row colheight>
+      <ion-col col-5 class="borderCalcS">
+        <ion-list orderMenuHeader>
           <ion-list-header>
             <ion-row>
               <ion-col col-6 verti-align>
                 <h1 align-items-stretch>Menu list</h1>
               </ion-col>
               <ion-col col-6 text-right>
-                <button ion-button round icon-start>
-                  <ion-icon name="ios-trash"></ion-icon>Clear all
-                </button>
+                <button ion-button round icon-start color="danger" (click)="cancelOrder()">
+      <ion-icon name="md-close"></ion-icon>CANCEL
+    </button>
               </ion-col>
             </ion-row>
           </ion-list-header>
         </ion-list>
         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
+          <!-- <ion-scroll scrollY="true" scrollsize1> -->
           <ion-list text-center>
-            <ion-card *ngFor="let order of [1,2,3,4,5]">
+            <ion-card *ngFor="let order of orders">
               <ion-card-header>
                 <ion-row>
-                  <ion-col col-10>
-                    <span align-items-center><h2>Product Name......</h2></span>
+                  <ion-col col-10 text-left>
+                    <h2>{{order.name}}</h2>
                   </ion-col>
-                  <ion-col col-2 text-right>
-                    <button ion-button color="danger" icon-only small><ion-icon name="md-close"></ion-icon>
-                    </button>
+                  <ion-col col-2 text-center>
+                    <button ion-button color="danger" icon-only small (click)="deleteOrder(order._id)"><ion-icon name="md-close"></ion-icon>
+</button>
                   </ion-col>
                 </ion-row>
               </ion-card-header>
@@ -39,25 +40,24 @@
                 <ion-list>
                   <ion-item>
                     <ion-label color="primary">Amount</ion-label>
-                    <ion-input type="number" text-right margin-right></ion-input>
-                    <button ion-button color="danger" item-right><ion-icon name="ios-remove"></ion-icon>
-                    </button>
-                    <button ion-button color="secondary" item-right no-margin no-padding><ion-icon name="ios-add"></ion-icon>
-                    </button>
+                    <ion-input type="number" [(ngModel)]="order.amount" text-right ng-readonly="true"></ion-input>
+                    <button ion-button color="danger" item-right (click)="decreseqtyitem(order._id)"><ion-icon name="ios-remove"></ion-icon>
+</button><button ion-button color="secondary" item-right no-margin no-padding (click)="increseqtyitem(order._id)"><ion-icon name="ios-add"></ion-icon>
+</button>
                   </ion-item>
-                  <ion-item>
+                  <ion-item *ngIf="order.category[0].subcate =='coffee'">
                     <ion-label color="primary">Sweetness level</ion-label>
-                    <ion-select [(ngModel)]="Sweetness" interface="popover">
-                      <ion-option value="lo">Low</ion-option>
-                      <ion-option selected value="me">Medium</ion-option>
-                      <ion-option value="hi">High</ion-option>
+                    <ion-select [(ngModel)]="order.sweetness" interface="popover">
+                      <ion-option value="low">Low</ion-option>
+                      <ion-option value="medium">Medium</ion-option>
+                      <ion-option value="high">High</ion-option>
                     </ion-select>
                   </ion-item>
-                  <ion-item>
+                  <ion-item *ngIf="order.category[0].subcate =='coffee'">
                     <ion-label color="primary">Amount of caffeine</ion-label>
-                    <ion-select [(ngModel)]="Degrees" interface="popover">
-                      <ion-option selected value="r">regular</ion-option>
-                      <ion-option value="ha">Half-caf</ion-option>
+                    <ion-select [(ngModel)]="order.degrees" interface="popover">
+                      <ion-option value="regular">Regular</ion-option>
+                      <ion-option value="half">Half-caf</ion-option>
                       <ion-option value="de">De-caf</ion-option>
                     </ion-select>
                   </ion-item>
@@ -67,27 +67,19 @@
           </ion-list>
         </ion-scroll>
       </ion-col>
-      <ion-col col-6>
-        <ion-grid>
-          <ion-row>
-            <ion-col col-12>
-              <ion-item>
-                <ion-label color="primary">Total cash :</ion-label>
-                <ion-input placeholder="" readonly></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label color="primary">Total Cup Coins :</ion-label>
-                <ion-input placeholder="" readonly></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col col-12>
-              <ion-item class="fontsizebntnumCalcS">
-                <ion-label color="primary">received :</ion-label>
-                <ion-input type="number" placeholder="input amount received" clearInput></ion-input>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+      <ion-col col-7 align-self-end>
+        <ion-item>
+          <ion-label color="primary">Total cash :</ion-label>
+          <ion-input placeholder="" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Total Cup Coins :</ion-label>
+          <ion-input placeholder="" readonly></ion-input>
+        </ion-item>
+        <ion-item class="fontsizebntnumCalcS">
+          <ion-label color="primary">received :</ion-label>
+          <ion-input type="number" placeholder="input amount received" clearInput></ion-input>
+        </ion-item>
         <ion-grid>
           <ion-row>
             <ion-col col-4>

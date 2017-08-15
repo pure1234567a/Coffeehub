@@ -23,6 +23,7 @@ import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HomeService } from "../pages/home/home.service";
 
 import { IonicStorageModule } from '@ionic/storage';
+import { CashierServiceProvider } from '../providers/cashier-service/cashier-service';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -70,7 +71,8 @@ const cloudSettings: CloudSettings = {
     StatusBar,
     SplashScreen,
     HomeService,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    CashierServiceProvider
   ]
 })
 export class AppModule { }

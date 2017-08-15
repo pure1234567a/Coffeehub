@@ -4,10 +4,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { ProfilePage } from '../pages/profile/profile';
 import { NewandpromotionPage } from '../pages/newandpromotion/newandpromotion';
-import { OrderlistPage } from '../pages/orderlist/orderlist'; 
+import { OrderlistPage } from '../pages/orderlist/orderlist';
 import { ShopmanagementPage } from '../pages/shopmanagement/shopmanagement';
 import { LoginPage } from '../pages/login/login';
 
@@ -19,7 +18,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
@@ -32,7 +31,7 @@ export class MyApp {
       { title: 'News & Promotion', component: NewandpromotionPage },
       { title: 'Shopmanagement', component: ShopmanagementPage },
       { title: 'Log out', component: LoginPage }
-      
+
     ];
 
   }
@@ -52,5 +51,5 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  
+
 }

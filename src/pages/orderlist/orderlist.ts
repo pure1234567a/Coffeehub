@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
-import { Storage } from '@ionic/storage';
 /**
  * Generated class for the OrderlistPage page.
  *
@@ -15,7 +14,7 @@ import { Storage } from '@ionic/storage';
 })
 export class OrderlistPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {

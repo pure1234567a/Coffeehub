@@ -9,15 +9,15 @@
 <ion-content>
   <ion-grid gridheight>
     <ion-row colheight>
-      <ion-col col-5>
-        <ion-list>
+      <ion-col col-5 borderCalcS>
+        <ion-list orderMenuHeader>
           <ion-list-header>
             <ion-row>
               <ion-col col-6 verti-align>
                 <h1 align-items-stretch>Menu list</h1>
               </ion-col>
               <ion-col col-6 text-right>
-                <button ion-button round icon-start>
+                <button ion-button round icon-start (click)="clearList()">
       <ion-icon name="ios-trash"></ion-icon>Clear all
     </button>
               </ion-col>
@@ -42,25 +42,24 @@
                 <ion-list>
                   <ion-item>
                     <ion-label color="primary">Amount</ion-label>
-                    <ion-input type="number" [(ngModel)]="order.amount" text-right></ion-input>
-                    <!-- <span>{{order.amount}}</span> -->
+                    <ion-input type="number" [(ngModel)]="order.amount" text-right margin-right></ion-input>
                     <button ion-button color="danger" item-right (click)="decreseqtyitem(order._id)"><ion-icon name="ios-remove"></ion-icon>
 </button><button ion-button color="secondary" item-right no-margin no-padding (click)="increseqtyitem(order._id)"><ion-icon name="ios-add"></ion-icon>
 </button>
                   </ion-item>
-                  <ion-item [hidden]="order.category[0].subcate !=='coffee'">
+                  <ion-item *ngIf="order.category[0].subcate =='coffee'">
                     <ion-label color="primary">Sweetness level</ion-label>
-                    <ion-select [(ngModel)]="Sweetness " interface="popover">
-                      <ion-option value="lo ">Low</ion-option>
-                      <ion-option selected value="me">Medium</ion-option>
-                      <ion-option value="hi">High</ion-option>
+                    <ion-select [(ngModel)]="order.sweetness" interface="popover">
+                      <ion-option value="low">Low</ion-option>
+                      <ion-option selected value="medium">Medium</ion-option>
+                      <ion-option value="high">High</ion-option>
                     </ion-select>
                   </ion-item>
-                  <ion-item [hidden]="order.category[0].subcate !=='coffee'">
+                  <ion-item *ngIf="order.category[0].subcate =='coffee'">
                     <ion-label color="primary">Amount of caffeine</ion-label>
-                    <ion-select [(ngModel)]="Degrees" interface="popover">
-                      <ion-option selected value="r">regular</ion-option>
-                      <ion-option value="ha">Half-caf</ion-option>
+                    <ion-select [(ngModel)]="order.degrees" interface="popover">
+                      <ion-option value="regular">Regular</ion-option>
+                      <ion-option selected value="half">Half-caf</ion-option>
                       <ion-option value="de">De-caf</ion-option>
                     </ion-select>
                   </ion-item>
@@ -106,7 +105,7 @@
                   </ion-card>
                 </ion-list>
                 <ion-list *ngSwitchCase="'dessert'">
-                  <ion-card *ngFor="let desserts of prod_dessert" imgcard>
+                  <ion-card *ngFor="let desserts of prod_dessert" imgcard (click)="addtoOrder(desserts)">
                     <ion-card-content card-content>
                       <ion-row>
                         <ion-col headTxt>
@@ -126,7 +125,7 @@
                 </ion-list>
 
                 <ion-list *ngSwitchCase="'food'">
-                  <ion-card *ngFor="let foods of prod_food" imgcard>
+                  <ion-card *ngFor="let foods of prod_food" imgcard (click)="addtoOrder(foods)">
                     <ion-card-content card-content>
                       <ion-row>
                         <ion-col headTxt>
