@@ -27,9 +27,17 @@ export class ProductItemModel {
             subcate: string;
         }
     ];
-    image: string;
+    image: [{
+        url: string,
+        id: string
+    }]
     name: string;
     shop_id: string;
     price: number;
+    user: {
+        id: string;
+        displayName: string;
+    }
+    created: Date;
 }
 

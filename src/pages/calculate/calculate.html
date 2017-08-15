@@ -39,6 +39,10 @@
               <ion-card-content>
                 <ion-list>
                   <ion-item>
+                    <ion-label color="primary">Price : </ion-label>
+                    <ion-input type="number" [(ngModel)]="order.price"></ion-input>
+                  </ion-item>
+                  <ion-item>
                     <ion-label color="primary">Amount</ion-label>
                     <ion-input type="number" [(ngModel)]="order.amount" text-right ng-readonly="true"></ion-input>
                     <button ion-button color="danger" item-right (click)="decreseqtyitem(order._id)"><ion-icon name="ios-remove"></ion-icon>
@@ -70,7 +74,7 @@
       <ion-col col-7 align-self-end>
         <ion-item>
           <ion-label color="primary">Total cash :</ion-label>
-          <ion-input placeholder="" readonly></ion-input>
+          <ion-input type="number" readonly [(ngModel)]="summary.total" text-right margin-right></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Total Cup Coins :</ion-label>

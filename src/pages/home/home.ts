@@ -5,6 +5,7 @@ import { HomeModel } from './home.model';
 import 'rxjs/Rx';
 
 import { HomeService } from "./home.service";
+// import { CashierServiceProvider } from "../../providers/cashier-service/cashier-service";
 
 @Component({
   selector: 'page-home',
@@ -17,10 +18,11 @@ export class HomePage {
   prod_dessert: any = [];
   prod_food: any = [];
   public orders: Array<any> = [];
-
+  shopID = '598d2b7aae23b74036451c77'
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    // private callservice: CashierServiceProvider
   ) {
 
   }
@@ -28,12 +30,19 @@ export class HomePage {
     this.navCtrl.push(CalculatePage);
   }
   ionViewDidLoad() {
+    // this.callservice.getProductByshop('598d2b7aae23b74036451c77').then((res) => {
+    //   console.log('Data : ' + JSON.stringify(res));
+    // }).catch((err) => {
+    //   console.log('ERR : ' + err);
+    // });
+
     this.homeservice
-      .getData()
+      .getData(this.shopID)
       .then(data => {
-        // console.log(data);
+        console.log(data);
+
         this.homemo.products = data.products;
-        this.homemo.orders = data.orders;
+        // this.homemo.orders = data.orders;
         this.prod_drink = this.homemo.products.filter(this.filterProductDrink);
         this.prod_dessert = this.homemo.products.filter(this.filterProductDessert);
         this.prod_food = this.homemo.products.filter(this.filterProductFood);
@@ -42,9 +51,10 @@ export class HomePage {
         //   this.prod_drink[i].customStyle = 'background-image: url("http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center center;';
         // }
 
-        console.log(this.prod_drink);
+        // console.log('Filter Product : ' + this.prod_drink);
       });
   }
+
 
   filterProductDrink(list) {
     // console.log(list);
@@ -75,6 +85,11 @@ export class HomePage {
     console.log(indexOfArr);
     if (indexOfArr == -1) {
       item.amount = 1;
+      if (item.category[0].subcate == "coffee") {
+        item.sweetness = "medium";
+        item.degrees = "half";
+      }
+
       this.orders.push(item);
     } else {
       console.log('HAVE');
@@ -117,4 +132,5 @@ export class HomePage {
   clearList() {
     this.orders = [];
   }
+
 }

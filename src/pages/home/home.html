@@ -50,6 +50,7 @@
                   <ion-item *ngIf="order.category[0].subcate =='coffee'">
                     <ion-label color="primary">Sweetness level</ion-label>
                     <ion-select [(ngModel)]="order.sweetness" interface="popover">
+                      <!-- <ion-select [(ngModel)]="order.sweetness" interface="popover"> -->
                       <ion-option value="low">Low</ion-option>
                       <ion-option selected value="medium">Medium</ion-option>
                       <ion-option value="high">High</ion-option>
@@ -94,7 +95,7 @@
                         </ion-col>
                       </ion-row>
                       <div class="crop">
-                        <img src="{{products.image}}" />
+                        <img src="{{products.image[0].url}}" />
                       </div>
                       <ion-row>
                         <ion-col contentTxt>
@@ -113,7 +114,7 @@
                         </ion-col>
                       </ion-row>
                       <div class="crop">
-                        <img src="{{desserts.image}}" />
+                        <img src="{{desserts.image[0].url}}" />
                       </div>
                       <ion-row>
                         <ion-col contentTxt>
@@ -133,7 +134,7 @@
                         </ion-col>
                       </ion-row>
                       <div class="crop">
-                        <img src="{{foods.image}}" />
+                        <img src="{{foods.image[0].url}}" />
                       </div>
                       <ion-row>
                         <ion-col contentTxt>

@@ -52,9 +52,14 @@
                     "subcate": "coffee"
                 }
             ],
-            "image": "http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg",
+            "image": [
+                {
+                    "url": "http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg",
+                    "id": "pic2"
+                }
+            ],
             "name": "กาแฟร้อน",
-            "shop_id": "000001",
+            "shop_id": "598d2b7aae23b74036451c77",
             "price": 85,
             "_id": "1234567890"
         },
@@ -66,9 +71,14 @@
                     "subcate": "coffee"
                 }
             ],
-            "image": "https://www.monin.com/us/media/catalog/product/cache/1/image/e8946618865700cddab2a90551e0840b/C/a/Caramel_Iced_Coffee-20161028082802_6.png",
+            "image": [
+                {
+                    "url": "https://www.monin.com/us/media/catalog/product/cache/1/image/e8946618865700cddab2a90551e0840b/C/a/Caramel_Iced_Coffee-20161028082802_6.png",
+                    "id": "pic1"
+                }
+            ],
             "name": "กาแฟเย็น",
-            "shop_id": "000001",
+            "shop_id": "598d2b7aae23b74036451c77",
             "price": 100,
             "_id": "1234567891"
         },
@@ -80,9 +90,14 @@
                     "subcate": "softdrink"
                 }
             ],
-            "image": "http://www.howtomakeorangejuice.com/files/photos/Orange_Juice_Recipes_Copyright_2012.jpg",
+            "image": [
+                {
+                    "url": "http://www.howtomakeorangejuice.com/files/photos/Orange_Juice_Recipes_Copyright_2012.jpg",
+                    "id": "pic01"
+                }
+            ],
             "name": "น้ำส้ม",
-            "shop_id": "000001",
+            "shop_id": "598d2b7aae23b74036451c77",
             "price": 40,
             "_id": "1234567892"
         },
@@ -94,9 +109,14 @@
                     "subcate": "softdrink"
                 }
             ],
-            "image": "http://news.psu.edu/sites/default/files/styles/threshold-992/public/2green%20tea%20iStock%20Spiderplay.jpg?itok=yZp4Ohyb",
+            "image": [
+                {
+                    "url": "http://news.psu.edu/sites/default/files/styles/threshold-992/public/2green%20tea%20iStock%20Spiderplay.jpg?itok=yZp4Ohyb",
+                    "id": "pic02"
+                }
+            ],
             "name": "Green Tea",
-            "shop_id": "000001",
+            "shop_id": "598d2b7aae23b74036451c77",
             "price": 60,
             "_id": "1234567893"
         },
@@ -108,9 +128,14 @@
                     "subcate": "softdrink"
                 }
             ],
-            "image": "https://i.pinimg.com/736x/38/9a/c6/389ac649b5dc8f92969f513ce75d6f43--fun-drinks-easy-drinks-alcohol.jpg",
+            "image": [
+                {
+                    "url": "https://i.pinimg.com/736x/38/9a/c6/389ac649b5dc8f92969f513ce75d6f43--fun-drinks-easy-drinks-alcohol.jpg",
+                    "id": "pic1"
+                }
+            ],
             "name": "พั้นช์",
-            "shop_id": "000001",
+            "shop_id": "598d2b7aae23b74036451c77",
             "price": 60,
             "_id": "1234567894"
         },
@@ -122,9 +147,14 @@
                     "subcate": "none"
                 }
             ],
-            "image": "http://food.mthai.com/app/uploads/2015/09/tum-tard-tumzab-tumza-1024x683.jpg",
+            "image": [
+                {
+                    "url": "http://food.mthai.com/app/uploads/2015/09/tum-tard-tumzab-tumza-1024x683.jpg",
+                    "id": "pic2"
+                }
+            ],
             "name": "ตำถาด",
-            "shop_id": "000001",
+            "shop_id": "598d2b7aae23b74036451c77",
             "price": 200,
             "_id": "1234567895"
         },
@@ -136,9 +166,14 @@
                     "subcate": "none"
                 }
             ],
-            "image": "https://cdn.daysoftheyear.com/wp-content/images/ice-cream-for-breakfast-day1-e1422793190507.jpg",
+            "image": [
+                {
+                    "url": "https://cdn.daysoftheyear.com/wp-content/images/ice-cream-for-breakfast-day1-e1422793190507.jpg",
+                    "id": "pic01"
+                }
+            ],
             "name": "Ice Cream",
-            "shop_id": "000001",
+            "shop_id": "598d2b7aae23b74036451c77",
             "price": 120,
             "_id": "1234567896"
         }
