@@ -15,11 +15,12 @@ import { OrderComponent } from "../../components/order/order";
 export class HomePage {
   menu = "drink";
   homemo: HomeModel = new HomeModel();
+  homemodel2: any = [];
   prod_drink: any = [];
   prod_dessert: any = [];
   prod_food: any = [];
   // public orders: Array<any> = [];
-  shopID = '598d2b7aae23b74036451c77'
+  shopID = '598d2b7aae23b74036451c77';
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
     private toastCtrl: ToastController,
@@ -31,20 +32,28 @@ export class HomePage {
     this.homeservice
       .getData(this.shopID)
       .then(data => {
-        console.log(data);
-
-        this.homemo.products = data.products;
+        // let getData = data;
+        // console.log("Data Get : " + JSON.stringify(data));
+        this.homemo = data;
+        this.homemodel2 = this.homemo;
         // this.homemo.orders = data.orders;
-        this.prod_drink = this.homemo.products.filter(this.filterProductDrink);
-        this.prod_dessert = this.homemo.products.filter(this.filterProductDessert);
-        this.prod_food = this.homemo.products.filter(this.filterProductFood);
+        // Local Data
+        // this.prod_drink = this.homemo.products.filter(this.filterProductDrink);
+        // this.prod_dessert = this.homemo.products.filter(this.filterProductDessert);
+        // this.prod_food = this.homemo.products.filter(this.filterProductFood);
+
+        // GET API Data
+        this.prod_drink = this.homemodel2.filter(this.filterProductDrink);
+        this.prod_dessert = this.homemodel2.filter(this.filterProductDessert);
+        this.prod_food = this.homemodel2.filter(this.filterProductFood);
+
 
         // for (let i = 0; i < this.prod_drink.length; i++) {
         //   this.prod_drink[i].customStyle = 'background-image: url("http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center center;';
         // }
-
+        console.log("Data Homemo : " + JSON.stringify(this.homemo.products));
         // console.log('Filter Product : ' + this.prod_drink);
-      });
+      }).catch(err => { console.log(err); });
   }
 
 

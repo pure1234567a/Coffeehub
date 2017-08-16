@@ -1,5 +1,5 @@
 export class HomeModel {
-    orders: Array<OrderItemModel>;
+    // orders: Array<OrderItemModel>;
     products: Array<ProductItemModel>;
 }
 
@@ -20,24 +20,23 @@ export class OrderItemModel {
     cash: number;
 }
 export class ProductItemModel {
-    category: [
-        {
-            name: string;
-            detail: string;
-            subcate: string;
-        }
-    ];
-    image: [{
-        url: string,
-        id: string
-    }]
+    category: Array<CategoryModel>;
+    image: Array<imgModel>;
     name: string;
     shop_id: string;
     price: number;
     user: {
-        id: string;
+        _id: string;
         displayName: string;
     }
-    created: Date;
+    created: string;
 }
-
+export class CategoryModel {
+    name: string;
+    detail: string;
+    subcate: string;
+}
+export class imgModel {
+    url: string;
+    id: string;
+}

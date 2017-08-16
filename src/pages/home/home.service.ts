@@ -19,24 +19,42 @@ export class HomeService {
 
     constructor(public http: Http) { }
 
-    getData(Shop): Promise<HomeModel> {
-        // return this.cashierService.getProductByshop(Shop)
-        return this.http.get('./assets/data/home.json')
-            // return this.http.get(this.apiUrl + 'api/getproducts/' + Shop, this.optionsURL)
-            .toPromise()
-            .then(response => response.json() as HomeModel)
-            .catch(this.handleError);
+    //Local Data 
+    // getData(Shop): Promise<HomeModel> {
+    //     return this.http.get('./assets/data/home.json')
+    //         .toPromise()
+    //         .then(response => response.json() as HomeModel)
+    //         .catch(this.handleError);
+    // }
 
-        // return new Promise((resolve, reject) => {
-        //     this.http.get(this.apiUrl + 'api/getproducts/' + Shop, this.optionsURL).map(res => {
-        //         return res.json();
-        //     }).subscribe(data => {
-        //         resolve(data);
-        //     }, (error) => {
-        //         reject(error);
-        //     });
-        // })
+    // Get Data from  Ass'computer
+    getData(Shop): Promise<HomeModel> {
+        return new Promise((resolve, reject) => {
+            this.http.get(this.apiUrl + 'api/getproducts/' + Shop, this.optionsURL).map(res => {
+                return res.json();
+            }).subscribe(data => {
+                resolve(data);
+            }, (error) => {
+                reject(error);
+            });
+        })
     }
+
+
+
+
+    //Backup
+    //  getData(Shop): Promise<HomeModel> {
+    //     return new Promise((resolve, reject) => {
+    //         this.http.get(this.apiUrl + 'api/getproducts/' + Shop, this.optionsURL).map(res => {
+    //             return res.json();
+    //         }).subscribe(data => {
+    //             resolve(data);
+    //         }, (error) => {
+    //             reject(error);
+    //         });
+    //     })
+    // }
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
