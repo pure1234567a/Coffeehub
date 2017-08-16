@@ -5,6 +5,7 @@ import { HomeModel } from './home.model';
 import 'rxjs/Rx';
 
 import { HomeService } from "./home.service";
+import { OrderComponent } from "../../components/order/order";
 // import { CashierServiceProvider } from "../../providers/cashier-service/cashier-service";
 
 @Component({
@@ -17,25 +18,16 @@ export class HomePage {
   prod_drink: any = [];
   prod_dessert: any = [];
   prod_food: any = [];
-  public orders: Array<any> = [];
+  // public orders: Array<any> = [];
   shopID = '598d2b7aae23b74036451c77'
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
     private toastCtrl: ToastController,
+    public ordersCom: OrderComponent
     // private callservice: CashierServiceProvider
   ) {
-
-  }
-  gotocalculate() {
-    this.navCtrl.push(CalculatePage);
   }
   ionViewDidLoad() {
-    // this.callservice.getProductByshop('598d2b7aae23b74036451c77').then((res) => {
-    //   console.log('Data : ' + JSON.stringify(res));
-    // }).catch((err) => {
-    //   console.log('ERR : ' + err);
-    // });
-
     this.homeservice
       .getData(this.shopID)
       .then(data => {
@@ -67,8 +59,8 @@ export class HomePage {
     return list.category[0].name == 'Food';
   }
   gotoCalculate() {
-    if (this.orders.length) {
-      this.navCtrl.push(CalculatePage, { ord: this.orders });
+    if (this.ordersCom.order.length) {
+      this.navCtrl.push(CalculatePage);
     } else {
       let toast = this.toastCtrl.create({
         message: 'No order to calculate',
@@ -81,7 +73,7 @@ export class HomePage {
   }
   addtoOrder(item) {
     console.log(item);
-    let indexOfArr = this.orders.findIndex(i => i._id === item._id);
+    let indexOfArr = this.ordersCom.order.findIndex(i => i._id === item._id);
     console.log(indexOfArr);
     if (indexOfArr == -1) {
       item.amount = 1;
@@ -90,39 +82,38 @@ export class HomePage {
         item.degrees = "half";
       }
 
-      this.orders.push(item);
+      this.ordersCom.order.push(item);
     } else {
-      console.log('HAVE');
-      this.orders[indexOfArr].amount = parseInt(this.orders[indexOfArr].amount) + 1;
+      this.ordersCom.order[indexOfArr].amount = parseInt(this.ordersCom.order[indexOfArr].amount) + 1;
     }
 
-    console.log(this.orders);
+    console.log(this.ordersCom.order);
   }
 
   deleteOrder(orderID) {
     console.log(orderID);
-    for (let i = 0; i < this.orders.length; i++) {
-      if (this.orders[i]._id == orderID) {
-        this.orders.splice(i, 1);
+    for (let i = 0; i < this.ordersCom.order.length; i++) {
+      if (this.ordersCom.order[i]._id == orderID) {
+        this.ordersCom.order.splice(i, 1);
         break;
       }
     }
   }
   increseqtyitem(orderID2) {
     console.log(orderID2);
-    for (let i = 0; i < this.orders.length; i++) {
-      if (this.orders[i]._id == orderID2) {
-        this.orders[i].amount = parseInt(this.orders[i].amount) + 1;
+    for (let i = 0; i < this.ordersCom.order.length; i++) {
+      if (this.ordersCom.order[i]._id == orderID2) {
+        this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) + 1;
         break;
       }
     }
   }
   decreseqtyitem(orderID2) {
     console.log(orderID2);
-    for (let i = 0; i < this.orders.length; i++) {
-      if (this.orders[i]._id == orderID2) {
-        if (parseInt(this.orders[i].amount) > 1) {
-          this.orders[i].amount = parseInt(this.orders[i].amount) - 1;
+    for (let i = 0; i < this.ordersCom.order.length; i++) {
+      if (this.ordersCom.order[i]._id == orderID2) {
+        if (parseInt(this.ordersCom.order[i].amount) > 1) {
+          this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) - 1;
           break;
         }
 
@@ -130,7 +121,7 @@ export class HomePage {
     }
   }
   clearList() {
-    this.orders = [];
+    this.ordersCom.order = [];
   }
 
 }

@@ -1,9 +1,9 @@
-import { last } from 'rxjs/operator/last';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ReceiptPage } from "../receipt/receipt";
 
-/**
+import { OrderComponent } from "../../components/order/order";
+/** 
  * Generated class for the CalculatePage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
@@ -15,20 +15,20 @@ import { ReceiptPage } from "../receipt/receipt";
   templateUrl: 'calculate.html',
 })
 export class CalculatePage {
-  private orders: Array<any> = [];
+  // private orders: Array<any> = [];
   private summary: any = {
     total: 0
   };
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ordersCom: OrderComponent) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CalculatePage');
-    this.orders = this.navParams.get('ord');
-    this.calculate(this.orders);
-    console.log(this.orders);
+    // console.log('ionViewDidLoad CalculatePage');
+    // this.orders = this.navParams.get('ord');
+    this.calculate(this.ordersCom.order);
+    console.log(this.ordersCom.order);
   }
   swipeBackEnabled() {
   };
@@ -38,18 +38,18 @@ export class CalculatePage {
   }
 
   cancelOrder() {
-    this.orders = [];
+    this.ordersCom.order = [];
     this.navCtrl.pop();
   }
 
   decreseqtyitem(orderID2) {
     console.log(orderID2);
-    for (let i = 0; i < this.orders.length; i++) {
-      if (this.orders[i]._id == orderID2) {
-        if (parseInt(this.orders[i].amount) > 1) {
-          this.orders[i].amount = parseInt(this.orders[i].amount) - 1;
+    for (let i = 0; i < this.ordersCom.order.length; i++) {
+      if (this.ordersCom.order[i]._id == orderID2) {
+        if (parseInt(this.ordersCom.order[i].amount) > 1) {
+          this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) - 1;
           this.summary.total = 0;
-          this.calculate(this.orders);
+          this.calculate(this.ordersCom.order);
           break;
         }
 
@@ -58,11 +58,11 @@ export class CalculatePage {
   }
   increseqtyitem(orderID2) {
     console.log(orderID2);
-    for (let i = 0; i < this.orders.length; i++) {
-      if (this.orders[i]._id == orderID2) {
-        this.orders[i].amount = parseInt(this.orders[i].amount) + 1;
+    for (let i = 0; i < this.ordersCom.order.length; i++) {
+      if (this.ordersCom.order[i]._id == orderID2) {
+        this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) + 1;
         this.summary.total = 0;
-        this.calculate(this.orders);
+        this.calculate(this.ordersCom.order);
         break;
       }
     }
@@ -70,20 +70,26 @@ export class CalculatePage {
 
   deleteOrder(orderID) {
     console.log(orderID);
-    for (let i = 0; i < this.orders.length; i++) {
-      if (this.orders[i]._id == orderID) {
-        this.orders.splice(i, 1);
+    for (let i = 0; i < this.ordersCom.order.length; i++) {
+      if (this.ordersCom.order[i]._id == orderID) {
+        this.ordersCom.order.splice(i, 1);
+        if (this.ordersCom.order.length == 0) {
+          this.navCtrl.pop();
+        }
         this.summary.total = 0;
-        this.calculate(this.orders);
+        this.calculate(this.ordersCom.order);
         break;
       }
+
     }
   }
   calculate(order) {
-    for (let i = 0; i < this.orders.length; i++) {
-      console.log("Amount : " + parseInt(this.orders[i].amount));
-      let totalsum = parseInt(this.orders[i].amount) * parseInt(this.orders[i].price);
-      this.summary.total += totalsum;
+    let total = 0;
+    for (let i = 0; i < this.ordersCom.order.length; i++) {
+      console.log("Amount : " + parseInt(this.ordersCom.order[i].amount));
+      let totalsum = parseInt(this.ordersCom.order[i].amount) * parseInt(this.ordersCom.order[i].price);
+      total += totalsum;
+      this.summary.total = this.addcomma(total);
       console.log("this.summary.total : " + this.summary.total);
       console.log("totalsum : " + totalsum);
     }
@@ -96,19 +102,15 @@ export class CalculatePage {
       this.cashReceive += num;
     }
     this.cashReceiveShow = this.addcomma(this.cashReceive);
-    // console.log(this.cashReceiveShow);
-    // this.cashReceive = this.addcomma(this.cashReceive);
-    // this.cashReceive = str;
-    // } else if (){ }
-    // this.cashReceiveShow = this.cashReceive;
   }
   addcomma(cashReceive) {
     return cashReceive.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   clickDel() {
-    if (this.cashReceive != null && this.cashReceive.length > 0 && this.cashReceive.charAt(this.cashReceive.length - 1) == 'x') {
+    console.log("DEl");
+    if (this.cashReceive != null && this.cashReceive.length > 0) {
       this.cashReceive = this.cashReceive.substring(0, this.cashReceive.length - 1);
-      this.cashReceiveShow = this.cashReceive
+      this.cashReceiveShow = this.addcomma(this.cashReceive);
     }
 
   }

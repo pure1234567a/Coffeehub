@@ -24,6 +24,7 @@ import { HomeService } from "../pages/home/home.service";
 
 import { IonicStorageModule } from '@ionic/storage';
 import { CashierServiceProvider } from '../providers/cashier-service/cashier-service';
+import { OrderComponent } from '../components/order/order';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -44,6 +45,7 @@ const cloudSettings: CloudSettings = {
     PromotionPage,
     CalculatePage,
     ReceiptPage,
+    OrderComponent,
   ],
   imports: [
     HttpModule,
@@ -72,7 +74,8 @@ const cloudSettings: CloudSettings = {
     SplashScreen,
     HomeService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    CashierServiceProvider
+    CashierServiceProvider,
+    OrderComponent
   ]
 })
 export class AppModule { }
