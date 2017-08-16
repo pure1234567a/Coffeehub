@@ -1,3 +1,4 @@
+import { last } from 'rxjs/operator/last';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ReceiptPage } from "../receipt/receipt";
@@ -18,6 +19,8 @@ export class CalculatePage {
   private summary: any = {
     total: 0
   };
+  private cashReceive: string = "0";
+  private cashReceiveShow: string = "0";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -85,5 +88,27 @@ export class CalculatePage {
       console.log("totalsum : " + totalsum);
     }
 
+  }
+  clickNum(num) {
+    if (this.cashReceive == "0" && num != "0" && num != "00" && this.cashReceive.length == 1) {
+      this.cashReceive = num;
+    } else if (this.cashReceive.length >= 1) {
+      this.cashReceive += num;
+    }
+    this.cashReceiveShow = this.addcomma(this.cashReceive);
+    // console.log(this.cashReceiveShow);
+    // this.cashReceive = this.addcomma(this.cashReceive);
+    // this.cashReceive = str;
+    // } else if (){ }
+    // this.cashReceiveShow = this.cashReceive;
+  }
+  addcomma(cashReceive) {
+    return cashReceive.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  clickDel() {
+
+  }
+  clickClear() {
+    this.cashReceive = "0"; this.cashReceiveShow = "0";
   }
 }

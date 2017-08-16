@@ -82,27 +82,28 @@
         </ion-item>
         <ion-item class="fontsizebntnumCalcS">
           <ion-label color="primary">received :</ion-label>
-          <ion-input type="number" placeholder="input amount received" clearInput></ion-input>
+          <ion-input type="text" [(ngModel)]="cashReceiveShow" placeholder="input amount received"></ion-input>
+          <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
         </ion-item>
         <ion-grid>
           <ion-row>
             <ion-col col-4>
-              <button ion-button block outline class="fontsizebntnumCalcS">1</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">4</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">7</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">0</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('1')">1</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('4')">4</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('7')">7</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('0')">0</button>
             </ion-col>
             <ion-col col-4>
-              <button ion-button block outline class="fontsizebntnumCalcS">2</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">5</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">8</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">00</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('2')">2</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('5')">5</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('8')">8</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('00')">00</button>
             </ion-col>
             <ion-col col-4>
-              <button ion-button block outline class="fontsizebntnumCalcS">3</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">6</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">8</button>
-              <button ion-button block outline class="fontsizebntnumCalcS">
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('3')">3</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('6')">6</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('9')">9</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickDel()">
                    <ion-icon name="md-backspace"></ion-icon>
               </button>
             </ion-col>
