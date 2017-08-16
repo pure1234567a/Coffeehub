@@ -106,6 +106,10 @@ export class CalculatePage {
     return cashReceive.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   clickDel() {
+    if (this.cashReceive != null && this.cashReceive.length > 0 && this.cashReceive.charAt(this.cashReceive.length - 1) == 'x') {
+      this.cashReceive = this.cashReceive.substring(0, this.cashReceive.length - 1);
+      this.cashReceiveShow = this.cashReceive
+    }
 
   }
   clickClear() {
