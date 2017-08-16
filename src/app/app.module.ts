@@ -21,6 +21,7 @@ import { ReceiptPage } from '../pages/receipt/receipt';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HomeService } from "../pages/home/home.service";
+import { LoginService } from "../pages/login/login.service";
 
 import { IonicStorageModule } from '@ionic/storage';
 import { OrderComponent } from '../components/order/order';
@@ -72,6 +73,7 @@ const cloudSettings: CloudSettings = {
     StatusBar,
     SplashScreen,
     HomeService,
+    LoginService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     OrderComponent
   ]

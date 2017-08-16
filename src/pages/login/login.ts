@@ -1,7 +1,9 @@
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController, App, Slides, ToastController } from 'ionic-angular';
 import { HomePage } from "../home/home";
 
+import { LoginService } from "./login.service";
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,7 +22,9 @@ export class LoginPage {
   };
   public loginForm: any;
   public backgroundImage = 'assets/img/background/imgnew.jpg';
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public app: App, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController, public app: App, private toastCtrl: ToastController,
+    public loginservice: LoginService) {
   }
 
 
@@ -81,14 +85,12 @@ export class LoginPage {
   }
 
   login() {
-    // this.presentLoading('Thanks for signing up!');
-    // this.navCtrl.push(HomePage);
-
     if (this.signindata.username !== ''
       && this.signindata.password !== ''
     ) {
       console.log('Username  ' + this.signindata.username + ' : ' + 'Password  ' + this.signindata.password);
-      this.navCtrl.push(HomePage);
+      this.loginservice.logingin(this.signindata).then(res => { this.navCtrl.push(HomePage); }).catch(err => { this.presentLoadingwarnings('รหัสผ่านไม่ถูกต้อง'); })
+      // this.navCtrl.push(HomePage);
       // this.presentLoading('Thanks for signing up!');
     }
 
