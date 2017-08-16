@@ -2,9 +2,9 @@
   <ion-header>
     <ion-navbar>
     </ion-navbar>
-  </ion-header> 
+  </ion-header>
   <ion-slides #slider class="content-slider" direction="vertical">
-    <ion-slide class="swiper-no-swiping">
+    <!-- <ion-slide class="swiper-no-swiping">
       <div padding>
         <img class="logo" src="assets/img/logo/logo-pr.png" />
         <ion-slides class="text-slider" autoplay="2000">
@@ -30,7 +30,7 @@
           </ion-col>
         </ion-row>
       </div>
-    </ion-slide>
+    </ion-slide> -->
     <ion-slide class="zoom swiper-no-swiping">
       <ion-slides #innerSlider class="content-slider">
         <ion-slide class="swiper-no-swiping">
@@ -53,7 +53,7 @@
             <ion-item>
               <ion-label floating>E-mail</ion-label>
               <ion-input type="email"></ion-input>
-            </ion-item> 
+            </ion-item>
             <button ion-button block round (click)="resetPassword()" color="light" class="login-button bnt-center bnt-size">RESET PASSWORD</button>
             <button ion-button clear (click)="slidePrevious()" color="light" class="goback-button"><ion-icon name="arrow-back"></ion-icon> GO BACK</button>
           </div>

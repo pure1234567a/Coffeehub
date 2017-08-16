@@ -4,11 +4,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { HomeModel } from './home.model';
-import { CashierServiceProvider } from "../../providers/cashier-service/cashier-service";
 
 @Injectable()
 export class HomeService {
-    apiUrl: string = 'http://192.168.1.119:3000/';
+    apiUrl: string = 'https://coffeehub.herokuapp.com/';
     headers = new Headers({
         'Content-Type': 'application/json'
     });

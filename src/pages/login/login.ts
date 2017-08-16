@@ -18,11 +18,11 @@ export class LoginPage {
     username: '',
     password: ''
   };
-
+  public loginForm: any;
+  public backgroundImage = 'assets/img/background/imgnew.jpg';
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public app: App, private toastCtrl: ToastController) {
   }
-  public loginForm: any;
-  public backgroundImage = 'assets/img/background/background-6.jpg';
+
 
 
 
@@ -32,11 +32,11 @@ export class LoginPage {
   @ViewChild('innerSlider') innerSlider: Slides;
 
   goToLogin() {
-    this.slider.slideTo(1);
+    this.slider.slideTo(0);
   }
 
   goToSignup() {
-    this.slider.slideTo(2);
+    this.slider.slideTo(1);
   }
 
   slideNext() {
@@ -86,10 +86,10 @@ export class LoginPage {
 
     if (this.signindata.username !== ''
       && this.signindata.password !== ''
-      ) {
+    ) {
       console.log('Username  ' + this.signindata.username + ' : ' + 'Password  ' + this.signindata.password);
       this.navCtrl.push(HomePage);
-      this.presentLoading('Thanks for signing up!');
+      // this.presentLoading('Thanks for signing up!');
     }
 
     else if (this.signindata.username !== '') {

@@ -23,7 +23,6 @@ import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HomeService } from "../pages/home/home.service";
 
 import { IonicStorageModule } from '@ionic/storage';
-import { CashierServiceProvider } from '../providers/cashier-service/cashier-service';
 import { OrderComponent } from '../components/order/order';
 const cloudSettings: CloudSettings = {
   'core': {
@@ -74,7 +73,6 @@ const cloudSettings: CloudSettings = {
     SplashScreen,
     HomeService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    CashierServiceProvider,
     OrderComponent
   ]
 })
