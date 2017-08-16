@@ -37,11 +37,11 @@
           <div style="padding: 20% 32px 32px 32px">
             <ion-item>
               <ion-label floating>Username</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" [(ngModel)]="signindata.username"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label floating>Password</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" [(ngModel)]="signindata.password"></ion-input>
             </ion-item>
             <button ion-button block round (click)="login()" color="light" class="login-button bnt-center bnt-size">SIGN IN</button>
             <button ion-button clear (click)="slideNext()" color="light" class="forgot-button">FORGOT PASSWORD?</button>
@@ -53,7 +53,7 @@
             <ion-item>
               <ion-label floating>E-mail</ion-label>
               <ion-input type="email"></ion-input>
-            </ion-item>
+            </ion-item> 
             <button ion-button block round (click)="resetPassword()" color="light" class="login-button bnt-center bnt-size">RESET PASSWORD</button>
             <button ion-button clear (click)="slidePrevious()" color="light" class="goback-button"><ion-icon name="arrow-back"></ion-icon> GO BACK</button>
           </div>

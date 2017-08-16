@@ -73,7 +73,7 @@ export class HomePage {
       let toast = this.toastCtrl.create({
         message: 'No order to calculate',
         duration: 3000,
-        position: 'middle',
+        position: 'middle', 
         cssClass: 'toasttextcenter'
       });
       toast.present();
