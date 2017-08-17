@@ -38,7 +38,7 @@ export class HomeService {
     getData(): Promise<HomeModel> {
         return new Promise((resolve, reject) => {
             this.http.get(this.apiUrl + 'api/products').map(res => {
-                console.log(res);
+                // console.log(res);
                 return res.json();
             }).subscribe(data => {
                 resolve(data);

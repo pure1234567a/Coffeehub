@@ -21,7 +21,7 @@ export class CalculatePage {
   };
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ordersCom: OrderComponent) {
+  constructor(public navCtrl: NavController, public ordersCom: OrderComponent) {
   }
 
   ionViewDidLoad() {

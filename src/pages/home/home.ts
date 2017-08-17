@@ -57,14 +57,17 @@ export class HomePage {
         // }
         // console.log("Data Homemo : " + JSON.stringify(this.homemodel2));
         alert("Data Length : " + this.homemodel2.length);
-        // console.log('Filter Product : ' + this.prod_drink);
+        // console.log('Product : ' + JSON.stringify(this.homemodel2[0].category[0].name));
+        console.log('Product : ' + JSON.stringify(data));
+        console.log('Filter Product : ' + this.prod_drink);
       }).catch(err => { console.log(err); });
   }
 
 
   filterProductDrink(list) {
-    // console.log(list);
-    return list.category[0].name == 'Drink';
+    console.log(list.category[0].name);
+    return list.category[0].name == "Drinks";
+
   }
   filterProductDessert(list) {
     return list.category[0].name == 'Dessert';
