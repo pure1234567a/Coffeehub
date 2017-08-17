@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, LoadingController, AlertController, App, Slides, ToastController, Events } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController, App, Slides } from 'ionic-angular';
 import { HomePage } from "../home/home";
 
 import { LoginService } from "./login.service";
@@ -17,14 +17,14 @@ import { UserComponent } from "../../components/user/user";
 })
 export class LoginPage {
   private signindata = {
-    username: '',
-    password: ''
+    username: 'admincyber01',
+    password: 'P@ssw0rd1234'
   };
   public loginForm: any;
   public backgroundImage = 'assets/img/background/imgnew.jpg';
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController, public app: App, private toastCtrl: ToastController,
-    public loginservice: LoginService, private userComp: UserComponent, public events: Events) {
+    public alertCtrl: AlertController, public app: App,
+    public loginservice: LoginService, private userComp: UserComponent) {
   }
 
 
@@ -92,8 +92,7 @@ export class LoginPage {
       this.loginservice.logingin(this.signindata).then(res => {
         this.userComp.userData = res;
         // console.log("User Data : " + JSON.stringify(this.userComp.userData));
-        console.log('User Login')
-        this.events.publish('user:created', this.userComp.userData, Date.now());
+        console.log('User Login');
         this.navCtrl.push(HomePage);
       }).catch(err => { this.presentLoadingwarnings('รหัสผ่านไม่ถูกต้อง'); })
       // this.navCtrl.push(HomePage);

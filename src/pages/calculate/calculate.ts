@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { ReceiptPage } from "../receipt/receipt";
 
 import { OrderComponent } from "../../components/order/order";
@@ -21,12 +21,10 @@ export class CalculatePage {
   };
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
-  constructor(public navCtrl: NavController, public ordersCom: OrderComponent) {
+  constructor(public navCtrl: NavController, public ordersCom: OrderComponent, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad CalculatePage');
-    // this.orders = this.navParams.get('ord');
     this.calculate(this.ordersCom.order);
     console.log(this.ordersCom.order);
   }
@@ -116,5 +114,38 @@ export class CalculatePage {
   }
   clickClear() {
     this.cashReceive = "0"; this.cashReceiveShow = "0";
+  }
+  inputPromotion() {
+    let alert = this.alertCtrl.create({
+      title: 'Promotion Code',
+      inputs: [
+        {
+          name: 'Code : ',
+          placeholder: 'Fill Promotion Code'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'PROMOTION',
+          handler: data => {
+
+            // if (User.isValid(data.username, data.password)) {
+            //   // logged in!
+            // } else {
+            //   // invalid login
+            //   return false;
+            // }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

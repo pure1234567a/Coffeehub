@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { Events } from 'ionic-angular';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -17,13 +16,8 @@ export class HomeService {
     optionsURL = new RequestOptions({
         headers: this.headers
     });
-    shopid_get: any = {};
+    constructor(public http: Http, public Usercomp: UserComponent) {
 
-    constructor(public http: Http, public Usercomp: UserComponent, public events: Events) {
-        // this.shopid_get = this.Usercomp.userData[0].shop_id;
-        let shopid_get = this.Usercomp.userData;
-        // let data2 = data1.shop_id
-        console.log("SHOP : " + JSON.stringify(shopid_get));
     }
 
     //Local Data 

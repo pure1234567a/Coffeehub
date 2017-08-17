@@ -72,6 +72,12 @@
         </ion-scroll>
       </ion-col>
       <ion-col col-7 align-self-end>
+        <ion-row>
+          <ion-col text-center round>
+            <button ion-button color="org" (click)="inputPromotion()">PROMOTION
+            </button>
+          </ion-col>
+        </ion-row>
         <ion-item>
           <ion-label color="primary">Total cash :</ion-label>
           <ion-input type="text" readonly [(ngModel)]="summary.total" text-right margin-right style="font-size:25px"></ion-input>

@@ -14,8 +14,8 @@ import { OrderComponent } from "../../components/order/order";
 })
 export class HomePage {
   menu = "drink";
-  homemo: HomeModel = new HomeModel();
-  homemodel2: any = [];
+  datamodel: HomeModel = new HomeModel();
+  datamodel2: any = [];
   prod_drink: any = [];
   prod_dessert: any = [];
   prod_food: any = [];
@@ -27,7 +27,6 @@ export class HomePage {
     private toastCtrl: ToastController,
     public ordersCom: OrderComponent,
     public navParams: NavParams
-    // private callservice: CashierServiceProvider
   ) {
     this.user = this.navParams.get('user');
     console.log(this.user);
@@ -36,36 +35,37 @@ export class HomePage {
     this.homeservice
       .getData()
       .then(data => {
-        // let getData = data;
         // console.log("Data Get : " + JSON.stringify(data));
-        this.homemo = data;
-        this.homemodel2 = this.homemo;
-        // this.homemo.orders = data.orders;
+        this.datamodel = data;
+        this.datamodel2 = this.datamodel;
+
+
         // Local Data
         // this.prod_drink = this.homemo.products.filter(this.filterProductDrink);
         // this.prod_dessert = this.homemo.products.filter(this.filterProductDessert);
         // this.prod_food = this.homemo.products.filter(this.filterProductFood);
 
         // GET API Data
-        this.prod_drink = this.homemodel2.filter(this.filterProductDrink);
-        this.prod_dessert = this.homemodel2.filter(this.filterProductDessert);
-        this.prod_food = this.homemodel2.filter(this.filterProductFood);
+        this.prod_drink = this.datamodel2.filter(this.filterProductDrink);
+        this.prod_dessert = this.datamodel2.filter(this.filterProductDessert);
+        this.prod_food = this.datamodel2.filter(this.filterProductFood);
 
 
         // for (let i = 0; i < this.prod_drink.length; i++) {
         //   this.prod_drink[i].customStyle = 'background-image: url("http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center center;';
         // }
         // console.log("Data Homemo : " + JSON.stringify(this.homemodel2));
-        alert("Data Length : " + this.homemodel2.length);
+        // alert("Data Length : " + this.datamodel2.length);
         // console.log('Product : ' + JSON.stringify(this.homemodel2[0].category[0].name));
-        console.log('Product : ' + JSON.stringify(data));
-        console.log('Filter Product : ' + this.prod_drink);
+        // console.log('Product : ' + JSON.stringify(data));
+        alert(JSON.stringify(data));
+        // console.log('Filter Product : ' + this.prod_drink);
       }).catch(err => { console.log(err); });
   }
 
 
   filterProductDrink(list) {
-    console.log(list.category[0].name);
+    // console.log(list.category[0].name);
     return list.category[0].name == "Drinks";
 
   }
