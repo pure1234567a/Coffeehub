@@ -1,4 +1,3 @@
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController, App, Slides, ToastController, Events } from 'ionic-angular';
 import { HomePage } from "../home/home";
