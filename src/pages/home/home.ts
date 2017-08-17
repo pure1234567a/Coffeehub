@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { CalculatePage } from "../calculate/calculate";
 import { HomeModel } from './home.model';
 import 'rxjs/Rx';
@@ -19,18 +19,22 @@ export class HomePage {
   prod_drink: any = [];
   prod_dessert: any = [];
   prod_food: any = [];
+  user: any = [];
   // public orders: Array<any> = [];
   shopID = '598d2b7aae23b74036451c77';
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
     private toastCtrl: ToastController,
-    public ordersCom: OrderComponent
+    public ordersCom: OrderComponent,
+    public navParams: NavParams
     // private callservice: CashierServiceProvider
   ) {
+    this.user = this.navParams.get('user');
+    console.log(this.user);
   }
   ionViewDidLoad() {
     this.homeservice
-      .getData(this.shopID)
+      .getData()
       .then(data => {
         // let getData = data;
         // console.log("Data Get : " + JSON.stringify(data));
@@ -51,7 +55,8 @@ export class HomePage {
         // for (let i = 0; i < this.prod_drink.length; i++) {
         //   this.prod_drink[i].customStyle = 'background-image: url("http://www.menshealth.com/sites/menshealth.com/files/coffee-mug.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center center;';
         // }
-        console.log("Data Homemo : " + JSON.stringify(this.homemo.products));
+        // console.log("Data Homemo : " + JSON.stringify(this.homemodel2));
+        alert("Data Length : " + this.homemodel2.length);
         // console.log('Filter Product : ' + this.prod_drink);
       }).catch(err => { console.log(err); });
   }
@@ -74,7 +79,7 @@ export class HomePage {
       let toast = this.toastCtrl.create({
         message: 'No order to calculate',
         duration: 3000,
-        position: 'middle', 
+        position: 'middle',
         cssClass: 'toasttextcenter'
       });
       toast.present();

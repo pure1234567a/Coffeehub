@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
  * for more info on Angular Components.
  */
 @Component({
-  selector: 'order',
-  template: 'order.html'
+    selector: 'user',
+    template: 'user.html'
 })
-export class OrderComponent {
-  public order: Array<any> = [];
-  constructor() {
-  }
+export class UserComponent {
+    public userData: Array<any> = [];
+    constructor() {
+    }
 
 }

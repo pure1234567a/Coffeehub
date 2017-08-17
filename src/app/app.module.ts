@@ -25,6 +25,7 @@ import { LoginService } from "../pages/login/login.service";
 
 import { IonicStorageModule } from '@ionic/storage';
 import { OrderComponent } from '../components/order/order';
+import { UserComponent } from "../components/user/user";
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -46,6 +47,7 @@ const cloudSettings: CloudSettings = {
     CalculatePage,
     ReceiptPage,
     OrderComponent,
+    UserComponent
   ],
   imports: [
     HttpModule,
@@ -75,7 +77,8 @@ const cloudSettings: CloudSettings = {
     HomeService,
     LoginService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    OrderComponent
+    OrderComponent,
+    UserComponent
   ]
 })
 export class AppModule { }

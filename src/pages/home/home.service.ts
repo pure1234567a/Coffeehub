@@ -1,9 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Events } from 'ionic-angular';
 
 import 'rxjs/add/operator/toPromise';
 
 import { HomeModel } from './home.model';
+import { UserComponent } from '../../components/user/user';
 
 @Injectable()
 export class HomeService {
@@ -15,8 +17,14 @@ export class HomeService {
     optionsURL = new RequestOptions({
         headers: this.headers
     });
+    shopid_get: any = {};
 
-    constructor(public http: Http) { }
+    constructor(public http: Http, public Usercomp: UserComponent, public events: Events) {
+        // this.shopid_get = this.Usercomp.userData[0].shop_id;
+        let shopid_get = this.Usercomp.userData;
+        // let data2 = data1.shop_id
+        console.log("SHOP : " + JSON.stringify(shopid_get));
+    }
 
     //Local Data 
     // getData(Shop): Promise<HomeModel> {
@@ -27,9 +35,10 @@ export class HomeService {
     // }
 
     // Get Data from  Ass'computer
-    getData(Shop): Promise<HomeModel> {
+    getData(): Promise<HomeModel> {
         return new Promise((resolve, reject) => {
-            this.http.get(this.apiUrl + 'api/getproducts/' + Shop, this.optionsURL).map(res => {
+            this.http.get(this.apiUrl + 'api/products').map(res => {
+                console.log(res);
                 return res.json();
             }).subscribe(data => {
                 resolve(data);
