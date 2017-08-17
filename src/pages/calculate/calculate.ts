@@ -120,7 +120,7 @@ export class CalculatePage {
       title: 'Promotion Code',
       inputs: [
         {
-          name: 'Code : ',
+          name: 'code',
           placeholder: 'Fill Promotion Code'
         }
       ],
@@ -135,7 +135,7 @@ export class CalculatePage {
         {
           text: 'PROMOTION',
           handler: data => {
-
+            console.log("CODE : " + data.code);
             // if (User.isValid(data.username, data.password)) {
             //   // logged in!
             // } else {
