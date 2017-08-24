@@ -17,8 +17,8 @@ import { PromotionComponent } from "../../components/promotion/promotion";
 })
 export class CalculatePage {
   // private orders: Array<any> = [];
-  public getpromotion;
-  public promofield = null;
+  public getpromotion: any;
+  // public promofield = null;
   public summary: any = {
     total: 0
   };

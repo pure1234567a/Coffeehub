@@ -34,7 +34,6 @@ export class PromotionComponent {
       } else if (getpromo) {
         this.events.publish('getpro', getpromo);
       }
-      console.log("SS: " + JSON.stringify(getpromo));
       // res.promotions.forEach(function (data) {
       //   if (data.code === promocode) {
       //     console.log("Today : " + today + "\n StartDate : " + data.startdate);

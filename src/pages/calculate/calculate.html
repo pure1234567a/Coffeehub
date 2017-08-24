@@ -23,53 +23,6 @@
         </ion-list>
         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
           <menulist [datas]="ordersCom.order"></menulist>
-          <!-- <ion-scroll scrollY="true" scrollsize1> -->
-          <!-- <ion-list text-center>
-            <ion-card *ngFor="let orde of ordersCom.order">
-              <ion-card-header>
-                <ion-row>
-                  <ion-col col-10 text-left>
-                    <h2>{{orde.name}}</h2>
-                  </ion-col>
-                  <ion-col col-2 text-center>
-                    <button ion-button color="danger" icon-only small (click)="deleteOrder(orde._id)"><ion-icon name="md-close"></ion-icon>
-</button>
-                  </ion-col>
-                </ion-row>
-              </ion-card-header>
-              <ion-card-content>
-                <ion-list>
-                  <ion-item>
-                    <ion-label color="primary">Price : </ion-label>
-                    <ion-input type="number" [(ngModel)]="orde.price"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-label color="primary">Amount</ion-label>
-                    <ion-input type="number" [(ngModel)]="orde.amount" text-right ng-readonly="true"></ion-input>
-                    <button ion-button color="danger" item-right (click)="decreseqtyitem(orde._id)"><ion-icon name="ios-remove"></ion-icon>
-</button><button ion-button color="secondary" item-right no-margin no-padding (click)="increseqtyitem(orde._id)"><ion-icon name="ios-add"></ion-icon>
-</button>
-                  </ion-item>
-                  <ion-item *ngIf="orde.category[0].subcate =='coffee'">
-                    <ion-label color="primary">Sweetness level</ion-label>
-                    <ion-select [(ngModel)]="orde.sweetness" interface="popover">
-                      <ion-option value="low">Low</ion-option>
-                      <ion-option value="medium">Medium</ion-option>
-                      <ion-option value="high">High</ion-option>
-                    </ion-select>
-                  </ion-item>
-                  <ion-item *ngIf="orde.category[0].subcate =='coffee'">
-                    <ion-label color="primary">Amount of caffeine</ion-label>
-                    <ion-select [(ngModel)]="orde.degrees" interface="popover">
-                      <ion-option value="regular">Regular</ion-option>
-                      <ion-option value="half">Half-caf</ion-option>
-                      <ion-option value="de">De-caf</ion-option>
-                    </ion-select>
-                  </ion-item>
-                </ion-list>
-              </ion-card-content>
-            </ion-card>
-          </ion-list> -->
         </ion-scroll>
       </ion-col>
       <ion-col col-7 align-self-end colheight>
@@ -86,8 +39,16 @@
         <ion-grid bottomGrid>
 
           <ion-row>
-            <ion-item [hidden]="">
+            <ion-item *ngIf="!getpromotion">
 
+              <ion-row>
+                <ion-input type="text" [(ngModel)]="getpromotion.promotions.name"></ion-input>
+                <!-- <span>{{getpromotion.code}} : {{getpromotion.name}} </span> -->
+              </ion-row>
+              <!-- <ion-row>
+                <div><span>Promotion start : {{getpromotion.startdate}} </span><span>Promotion end : {{getpromotion.enddate}} </span></div>
+                <div><span>Detail : {{getpromotion.detail}}</span></div>
+              </ion-row> -->
             </ion-item>
             <ion-item>
               <ion-label color="primary">Total cash :</ion-label>

@@ -21,26 +21,26 @@ export class HomeService {
     }
 
     //Local Data 
-    getData(): Promise<HomeModel> {
-        return this.http.get('./assets/data/products.json')
-            .toPromise()
-            .then(response => response.json() as HomeModel)
-            .catch(this.handleError);
-    }
+    // getData(): Promise<HomeModel> {
+    //     return this.http.get('./assets/data/products.json')
+    //         .toPromise()
+    //         .then(response => response.json() as HomeModel)
+    //         .catch(this.handleError);
+    // }
 
     // Get Data from  Ass'computer
-    // getData(): Promise<HomeModel> {
-    //     return new Promise((resolve, reject) => {
-    //         this.http.get(this.apiUrl + 'api/products').map(res => {
-    //             // console.log(res);
-    //             return res.json();
-    //         }).subscribe(data => {
-    //             resolve(data);
-    //         }, (error) => {
-    //             reject(error);
-    //         });
-    //     })
-    // }
+    getData(): Promise<HomeModel> {
+        return new Promise((resolve, reject) => {
+            this.http.get(this.apiUrl + 'api/products').map(res => {
+                // console.log(res);
+                return res.json();
+            }).subscribe(data => {
+                resolve(data);
+            }, (error) => {
+                reject(error);
+            });
+        })
+    }
 
 
 

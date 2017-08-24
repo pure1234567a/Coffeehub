@@ -20,8 +20,6 @@ export class HomePage {
   prod_dessert: any = [];
   prod_food: any = [];
   user: any = [];
-  // public orders: Array<any> = [];
-  shopID = '598d2b7aae23b74036451c77';
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
     private toastCtrl: ToastController,
