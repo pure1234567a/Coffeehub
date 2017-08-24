@@ -25,11 +25,9 @@ export class ProductItemModel {
     name: string;
     shop_id: string;
     price: number;
-    user: {
-        _id: string;
-        displayName: string;
-    }
+    user: string;
     created: string;
+    _id: string;
 }
 export class CategoryModel {
     name: string;

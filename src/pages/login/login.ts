@@ -91,6 +91,7 @@ export class LoginPage {
       console.log('Username  ' + this.signindata.username + ' : ' + 'Password  ' + this.signindata.password);
       this.loginservice.logingin(this.signindata).then(res => {
         this.userComp.userData = res;
+        localStorage.setItem("user", JSON.stringify(res));
         // console.log("User Data : " + JSON.stringify(this.userComp.userData));
         console.log('User Login');
         this.navCtrl.push(HomePage);

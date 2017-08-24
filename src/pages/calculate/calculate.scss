@@ -1,43 +1,40 @@
 // calculate screen = CalcS
-.borderCalcS {
-    border-right: solid;
-    border-color: darkgray;
-}
-
-.fontsizebntnumCalcS {
-    font-size: 20px;
-}
-
-.fontsizetotalCalcS {
-    font-size: 20px;
-}
-
-.sizebntCalcS {
-    font-size: 32px;
-}
-
-[verti-align] {
-    display: flex!important;
-    align-content: center!important;
-    align-items: center!important;
-}
-
-[scrollsize1] {
-    height: 99% !important;
-}
-
-.heightscrollboxmenulistHS {
-    height: 100% !important;
-}
-
-[orderMenuHeader] {
-    margin-bottom: 5px;
-}
-
-[gridheight] {
-    height: 100% !important; // overflow: hidden;
-}
-
-[colheight] {
-    height: 99%;
+page-calculate {
+    .borderCalcS {
+        border-right: solid;
+        border-color: darkgray;
+    }
+    .fontsizebntnumCalcS {
+        font-size: 20px;
+    }
+    .fontsizetotalCalcS {
+        font-size: 20px;
+    }
+    .sizebntCalcS {
+        font-size: 25px;
+    }
+    [verti-align] {
+        display: flex!important;
+        align-content: center!important;
+        align-items: center!important;
+    }
+    [scrollsize1] {
+        height: 99% !important;
+    }
+    .heightscrollboxmenulistHS {
+        height: 100% !important;
+    }
+    [orderMenuHeader] {
+        margin-bottom: 5px;
+    }
+    [gridheight] {
+        height: 100% !important; // overflow: hidden;
+    }
+    [colheight] {
+        height: 99%;
+    }
+    [bottomGrid] {
+        position: absolute;
+        bottom: 0;
+    }
 }

@@ -58,7 +58,7 @@ export class HomePage {
         // alert("Data Length : " + this.datamodel2.length);
         // console.log('Product : ' + JSON.stringify(this.homemodel2[0].category[0].name));
         // console.log('Product : ' + JSON.stringify(data));
-        alert(JSON.stringify(data));
+        // alert(JSON.stringify(data));
         // console.log('Filter Product : ' + this.prod_drink);
       }).catch(err => { console.log(err); });
   }
@@ -107,15 +107,7 @@ export class HomePage {
     console.log(this.ordersCom.order);
   }
 
-  deleteOrder(orderID) {
-    console.log(orderID);
-    for (let i = 0; i < this.ordersCom.order.length; i++) {
-      if (this.ordersCom.order[i]._id == orderID) {
-        this.ordersCom.order.splice(i, 1);
-        break;
-      }
-    }
-  }
+
   increseqtyitem(orderID2) {
     console.log(orderID2);
     for (let i = 0; i < this.ordersCom.order.length; i++) {

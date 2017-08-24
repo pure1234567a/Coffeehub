@@ -27,6 +27,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { OrderComponent } from '../components/order/order';
 import { UserComponent } from "../components/user/user";
 import { PromotionComponent } from '../components/promotion/promotion';
+import { MenulistComponent } from '../components/menulist/menulist';
+import { ProductlistComponent } from '../components/productlist/productlist';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -49,7 +51,9 @@ const cloudSettings: CloudSettings = {
     ReceiptPage,
     OrderComponent,
     UserComponent,
-    PromotionComponent
+    PromotionComponent,
+    MenulistComponent,
+    ProductlistComponent
   ],
   imports: [
     HttpModule,
@@ -81,7 +85,8 @@ const cloudSettings: CloudSettings = {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     OrderComponent,
     UserComponent,
-    PromotionComponent
+    PromotionComponent,
+    CalculatePage
   ]
 })
 export class AppModule { }

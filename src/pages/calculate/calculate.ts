@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, Events } from 'ionic-angular';
 import { ReceiptPage } from "../receipt/receipt";
 
 import { OrderComponent } from "../../components/order/order";
+import { PromotionComponent } from "../../components/promotion/promotion";
 /** 
  * Generated class for the CalculatePage page.
  *
@@ -16,16 +17,27 @@ import { OrderComponent } from "../../components/order/order";
 })
 export class CalculatePage {
   // private orders: Array<any> = [];
-  private summary: any = {
+  public getpromotion;
+  public promofield = null;
+  public summary: any = {
     total: 0
   };
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
-  constructor(public navCtrl: NavController, public ordersCom: OrderComponent, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public ordersCom: OrderComponent,
+    private alertCtrl: AlertController,
+    public promotionservice: PromotionComponent,
+    public events: Events
+  ) {
+    events.subscribe('callCal', () => {
+      // user and time are the same arguments passed in `events.publish(user, time)`
+      this.summary.total = 0;
+      this.calculate();
+    });
   }
 
   ionViewDidLoad() {
-    this.calculate(this.ordersCom.order);
+    this.calculate();
     console.log(this.ordersCom.order);
   }
   swipeBackEnabled() {
@@ -47,7 +59,7 @@ export class CalculatePage {
         if (parseInt(this.ordersCom.order[i].amount) > 1) {
           this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) - 1;
           this.summary.total = 0;
-          this.calculate(this.ordersCom.order);
+          this.calculate();
           break;
         }
 
@@ -60,7 +72,7 @@ export class CalculatePage {
       if (this.ordersCom.order[i]._id == orderID2) {
         this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) + 1;
         this.summary.total = 0;
-        this.calculate(this.ordersCom.order);
+        this.calculate();
         break;
       }
     }
@@ -75,24 +87,33 @@ export class CalculatePage {
           this.navCtrl.pop();
         }
         this.summary.total = 0;
-        this.calculate(this.ordersCom.order);
+        this.calculate();
         break;
       }
 
     }
   }
-  calculate(order) {
+
+
+  calculate() {
     let total = 0;
     for (let i = 0; i < this.ordersCom.order.length; i++) {
       console.log("Amount : " + parseInt(this.ordersCom.order[i].amount));
       let totalsum = parseInt(this.ordersCom.order[i].amount) * parseInt(this.ordersCom.order[i].price);
       total += totalsum;
-      this.summary.total = this.addcomma(total);
       console.log("this.summary.total : " + this.summary.total);
       console.log("totalsum : " + totalsum);
     }
-
+    if (this.getpromotion) {
+      if (this.getpromotion.discounttype == "Percent") {
+        total = total - ((total / 100) * this.getpromotion.value);
+      } else if (this.getpromotion.discounttype == "Baht") {
+        total = total - this.getpromotion.value;
+      }
+    }
+    this.summary.total = this.addcomma(total);
   }
+
   clickNum(num) {
     if (this.cashReceive == "0" && num != "0" && num != "00" && this.cashReceive.length == 1) {
       this.cashReceive = num;
@@ -116,6 +137,11 @@ export class CalculatePage {
     this.cashReceive = "0"; this.cashReceiveShow = "0";
   }
   inputPromotion() {
+    this.events.subscribe('getpro', (pro) => {
+      console.log('Show pro : ', pro);
+      this.getpromotion = pro;
+      this.calculate();
+    });
     let alert = this.alertCtrl.create({
       title: 'Promotion Code',
       inputs: [
@@ -133,8 +159,9 @@ export class CalculatePage {
           }
         },
         {
-          text: 'PROMOTION',
+          text: 'OK',
           handler: data => {
+            this.promotionservice.validatePromotion(data.code);
             console.log("CODE : " + data.code);
             // if (User.isValid(data.username, data.password)) {
             //   // logged in!

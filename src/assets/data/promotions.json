@@ -1,0 +1,56 @@
+{
+    "promotions": [
+        {
+            "code": "A5468YU",
+            "created": {
+                "$date": "2017-08-17T08:30:44.368Z"
+            },
+            "detail": "Open new shop discount 5%",
+            "discounttype": [
+                "Percent"
+            ],
+            "enddate": {
+                "$date": "2018-08-10T11:20:14.000Z"
+            },
+            "log": [],
+            "name": "Promotion Name",
+            "shop_id": {
+                "$oid": "59942081e730751000eae090"
+            },
+            "startdate": {
+                "$date": "2017-08-10T11:20:14.000Z"
+            },
+            "status": "activate",
+            "user": {
+                "$oid": "5994125be730751000eae08e"
+            },
+            "value": 5
+        },
+        {
+            "code": "A5468YE",
+            "created": {
+                "$date": "2017-08-17T08:40:41.678Z"
+            },
+            "detail": "Open new shop discount 7%",
+            "discounttype": [
+                "Baht"
+            ],
+            "enddate": {
+                "$date": "2018-08-10T11:20:14.000Z"
+            },
+            "log": [],
+            "name": "Promotion Name",
+            "shop_id": {
+                "$oid": "59941324e730751000eae08f"
+            },
+            "startdate": {
+                "$date": "2017-08-10T11:20:14.000Z"
+            },
+            "status": "activate",
+            "user": {
+                "$oid": "59941324e730751000eae08f"
+            },
+            "value": 15
+        }
+    ]
+}

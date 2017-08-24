@@ -22,8 +22,9 @@
           </ion-list-header>
         </ion-list>
         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
+          <menulist [datas]="ordersCom.order"></menulist>
           <!-- <ion-scroll scrollY="true" scrollsize1> -->
-          <ion-list text-center>
+          <!-- <ion-list text-center>
             <ion-card *ngFor="let orde of ordersCom.order">
               <ion-card-header>
                 <ion-row>
@@ -68,30 +69,40 @@
                 </ion-list>
               </ion-card-content>
             </ion-card>
-          </ion-list>
+          </ion-list> -->
         </ion-scroll>
       </ion-col>
-      <ion-col col-7 align-self-end>
-        <ion-row>
-          <ion-col text-center round>
-            <button ion-button color="org" (click)="inputPromotion()">PROMOTION
-            </button>
-          </ion-col>
-        </ion-row>
-        <ion-item>
-          <ion-label color="primary">Total cash :</ion-label>
-          <ion-input type="text" readonly [(ngModel)]="summary.total" text-right margin-right style="font-size:25px"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label color="primary">Total Cup Coins :</ion-label>
-          <ion-input placeholder="" readonly></ion-input>
-        </ion-item>
-        <ion-item class="fontsizebntnumCalcS">
-          <ion-label color="primary">received :</ion-label>
-          <ion-input type="text" [(ngModel)]="cashReceiveShow" text-right style="font-size:25px"></ion-input>
-          <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
-        </ion-item>
+      <ion-col col-7 align-self-end colheight>
+
         <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <button ion-button color="org" round (click)="inputPromotion()">PROMOTION
+                  </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid bottomGrid>
+
+          <ion-row>
+            <ion-item [hidden]="">
+
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary">Total cash :</ion-label>
+              <ion-input type="text" readonly [(ngModel)]="summary.total" text-right margin-right style="font-size:25px"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary">Total Cup Coins :</ion-label>
+              <ion-input placeholder="" readonly></ion-input>
+            </ion-item>
+            <ion-item class="fontsizebntnumCalcS">
+              <ion-label color="primary">received :</ion-label>
+              <ion-input type="text" [(ngModel)]="cashReceiveShow" text-right style="font-size:25px"></ion-input>
+              <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
+            </ion-item>
+          </ion-row>
           <ion-row>
             <ion-col col-4>
               <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('1')">1</button>
@@ -110,30 +121,24 @@
               <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('6')">6</button>
               <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('9')">9</button>
               <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickDel()">
-                   <ion-icon name="md-backspace"></ion-icon>
-              </button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <button ion-button icon-left full round class="sizebntCalcS" (click)="gotoReceiptpage()">
-                    <ion-icon name="ios-cash-outline"></ion-icon>
-                    Pay with Cash
-                  </button>
+                             <ion-icon name="md-backspace"></ion-icon>
+                        </button>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col>
-              <button ion-button icon-left full round class="sizebntCalcS">
-                    <ion-icon name="ios-cafe-outline"></ion-icon>
-                    Pay with Cup Coins
-                  </button>
+            <ion-col col-6>
+              <button ion-button icon-left block class="sizebntCalcS" (click)="gotoReceiptpage()">
+                                  <ion-icon name="ios-cash-outline"></ion-icon>
+                                  Pay with Cash
+                                </button>
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button icon-left block class="sizebntCalcS">
+                                  <ion-icon name="ios-cafe-outline"></ion-icon>
+                                  Pay with Cup Coins
+                                </button>
             </ion-col>
           </ion-row>
-          <!-- <button ion-button icon-left full class="sizebntCalcS" (click)="gotocalculate()"><ion-icon name="ios-cafe-outline">Pay with Cash</button>
-              <button ion-button icon-left full class="sizebntCalcS"><ion-icon name="ios-cafe-outline"></ion-icon>Pay with Cup Coins</button> -->
         </ion-grid>
       </ion-col>
     </ion-row>
