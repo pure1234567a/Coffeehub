@@ -29,6 +29,8 @@ import { UserComponent } from "../components/user/user";
 import { PromotionComponent } from '../components/promotion/promotion';
 import { MenulistComponent } from '../components/menulist/menulist';
 import { ProductlistComponent } from '../components/productlist/productlist';
+import { TestcomComponent } from '../components/testcom/testcom';
+import { PagetestPage } from '../pages/pagetest/pagetest';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -53,7 +55,9 @@ const cloudSettings: CloudSettings = {
     UserComponent,
     PromotionComponent,
     MenulistComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    TestcomComponent,
+    PagetestPage
   ],
   imports: [
     HttpModule,
@@ -75,7 +79,8 @@ const cloudSettings: CloudSettings = {
     NewsPage,
     PromotionPage,
     CalculatePage,
-    ReceiptPage
+    ReceiptPage,
+    PagetestPage
   ],
   providers: [
     StatusBar,

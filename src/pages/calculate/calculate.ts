@@ -1,5 +1,6 @@
+import { PromotionModel } from '../../components/promotion/promotion.model';
 import { Component } from '@angular/core';
-import { NavController, AlertController, Events } from 'ionic-angular';
+import { AlertController, Events, LoadingController, NavController } from 'ionic-angular';
 import { ReceiptPage } from "../receipt/receipt";
 
 import { OrderComponent } from "../../components/order/order";
@@ -17,21 +18,19 @@ import { PromotionComponent } from "../../components/promotion/promotion";
 })
 export class CalculatePage {
   // private orders: Array<any> = [];
-  public getpromotion: any;
-  // public promofield = null;
-  public summary: any = {
-    total: 0
-  };
+  public getpromotion: PromotionModel = new PromotionModel();
+  public total = 0;
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
   constructor(public navCtrl: NavController, public ordersCom: OrderComponent,
     private alertCtrl: AlertController,
     public promotionservice: PromotionComponent,
-    public events: Events
+    public events: Events,
+    public loadingCtrl: LoadingController
   ) {
     events.subscribe('callCal', () => {
       // user and time are the same arguments passed in `events.publish(user, time)`
-      this.summary.total = 0;
+      this.total = 0;
       this.calculate();
     });
   }
@@ -43,8 +42,17 @@ export class CalculatePage {
   swipeBackEnabled() {
   };
 
-  gotoReceiptpage() {
-    this.navCtrl.push(ReceiptPage);
+  calculatePayment() {
+    let loading = this.loadingCtrl.create();
+    if (this.cashReceive == '0') {
+      loading.dismiss();
+      alert('Please recieve money from customer!');
+    } else if (parseInt(this.cashReceive) < this.total) {
+      alert('Cash is not enough for pay!');
+    } else {
+      this.navCtrl.push(ReceiptPage);
+    }
+
   }
 
   cancelOrder() {
@@ -52,66 +60,33 @@ export class CalculatePage {
     this.navCtrl.pop();
   }
 
-  decreseqtyitem(orderID2) {
-    console.log(orderID2);
-    for (let i = 0; i < this.ordersCom.order.length; i++) {
-      if (this.ordersCom.order[i]._id == orderID2) {
-        if (parseInt(this.ordersCom.order[i].amount) > 1) {
-          this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) - 1;
-          this.summary.total = 0;
-          this.calculate();
-          break;
-        }
-
-      }
-    }
-  }
-  increseqtyitem(orderID2) {
-    console.log(orderID2);
-    for (let i = 0; i < this.ordersCom.order.length; i++) {
-      if (this.ordersCom.order[i]._id == orderID2) {
-        this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) + 1;
-        this.summary.total = 0;
-        this.calculate();
-        break;
-      }
-    }
-  }
-
-  deleteOrder(orderID) {
-    console.log(orderID);
-    for (let i = 0; i < this.ordersCom.order.length; i++) {
-      if (this.ordersCom.order[i]._id == orderID) {
-        this.ordersCom.order.splice(i, 1);
-        if (this.ordersCom.order.length == 0) {
-          this.navCtrl.pop();
-        }
-        this.summary.total = 0;
-        this.calculate();
-        break;
-      }
-
-    }
-  }
-
-
   calculate() {
-    let total = 0;
+    this.total = parseInt('0');
     for (let i = 0; i < this.ordersCom.order.length; i++) {
       console.log("Amount : " + parseInt(this.ordersCom.order[i].amount));
       let totalsum = parseInt(this.ordersCom.order[i].amount) * parseInt(this.ordersCom.order[i].price);
-      total += totalsum;
-      console.log("this.summary.total : " + this.summary.total);
-      console.log("totalsum : " + totalsum);
+      this.total += totalsum;
+      console.log("this.summary.total : " + this.total);
+      console.log("totalsum : " + this.total);
     }
-    if (this.getpromotion) {
-      if (this.getpromotion.discounttype == "Percent") {
-        total = total - ((total / 100) * this.getpromotion.value);
-      } else if (this.getpromotion.discounttype == "Baht") {
-        total = total - this.getpromotion.value;
-      }
+    if (this.getpromotion.promotions) {
+      // console.log("++++ " + this.getpromotion.promotions[0].discounttype.find("discounttype", "Percent", res => { }));
+      // if (this.getpromotion.promotions[0].discounttype == ["Percent"]) {
+      //   console.log("+++++++xxxxxxxxxxxxxxxxxxx+");
+      //   this.total = this.total - ((this.total / 100) * this.getpromotion.promotions[0].value);
+      // } else if (this.getpromotion.promotions.find(this.findProtypeBaht)) {
+      //   this.total = this.total - this.getpromotion.promotions[0].value;
+      // }
     }
-    this.summary.total = this.addcomma(total);
+    this.total = this.addcomma(this.total);
+  }
+
+  findProtypePercent(type) {
+    console.log("+++++++++++++");
+    return type.discounttype == "Percent"
+  }
+  findProtypeBaht(type) {
+    return type.discounttype == "Baht";
   }
 
   clickNum(num) {
@@ -127,19 +102,25 @@ export class CalculatePage {
   }
   clickDel() {
     console.log("DEl");
-    if (this.cashReceive != null && this.cashReceive.length > 0) {
+    if (this.cashReceive !== null && this.cashReceive.length > 1) {
+
       this.cashReceive = this.cashReceive.substring(0, this.cashReceive.length - 1);
       this.cashReceiveShow = this.addcomma(this.cashReceive);
-    }
+    } else {
+      console.log("click");
+      this.cashReceive = "0"; this.cashReceiveShow = "0";
+      this.cashReceiveShow = this.addcomma(this.cashReceive);
 
+    }
   }
+
   clickClear() {
     this.cashReceive = "0"; this.cashReceiveShow = "0";
   }
   inputPromotion() {
     this.events.subscribe('getpro', (pro) => {
       console.log('Show pro : ', pro);
-      this.getpromotion = pro;
+      this.getpromotion.promotions = pro;
       this.calculate();
     });
     let alert = this.alertCtrl.create({

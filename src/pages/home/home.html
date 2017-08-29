@@ -10,8 +10,16 @@
   <ion-grid gridheight>
     <ion-row colheight>
       <ion-col col-5 borderCalcS>
+
+        <div text-center><span> Hello! {{user.firstName}} {{user.lastName}} </span> <span margin-left>{{time | date: "dd/MMM/yyyy"}} {{time | date: "hh:mm:ss"}}</span>
+        </div>
         <ion-list orderMenuHeader>
           <ion-list-header>
+            <!-- <ion-row> -->
+            <!-- <ion-col text-center> -->
+
+            <!-- </ion-col> -->
+            <!-- </ion-row> -->
             <ion-row>
               <ion-col col-6 verti-align>
                 <h1 align-items-stretch>Menu list</h1>

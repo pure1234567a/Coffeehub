@@ -1,0 +1,9 @@
+<!-- Generated template for the TestcomComponent component -->
+<ion-row *ngFor="let items of nam">
+  <ion-col>{{items.name}}</ion-col>
+  <ion-col>{{nam2.a}}</ion-col>
+  <ion-col>{{nam2.b}}</ion-col>
+  <ion-col>{{nam2.c}}</ion-col>
+  <ion-col>{{nam2.d}}</ion-col>
+  <ion-input type="submit" (click)="testclick(items.name)" name="OK"></ion-input>
+</ion-row>

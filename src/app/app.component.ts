@@ -9,6 +9,7 @@ import { NewandpromotionPage } from '../pages/newandpromotion/newandpromotion';
 import { OrderlistPage } from '../pages/orderlist/orderlist';
 import { ShopmanagementPage } from '../pages/shopmanagement/shopmanagement';
 import { LoginPage } from '../pages/login/login';
+import { PagetestPage } from "../pages/pagetest/pagetest";
 
 @Component({
   templateUrl: 'app.html'

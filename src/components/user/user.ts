@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
     template: 'user.html'
 })
 export class UserComponent {
-    public userData: Array<any> = [];
+    public userData: Array<any>;
     constructor() {
     }
 

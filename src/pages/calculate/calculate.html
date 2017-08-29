@@ -34,37 +34,49 @@
                   </button>
             </ion-col>
           </ion-row>
-        </ion-grid>
+          <!-- </ion-grid> -->
 
-        <ion-grid bottomGrid>
-
+          <!-- <ion-grid bottomGrid> -->
           <ion-row>
-            <ion-item *ngIf="!getpromotion">
-
-              <ion-row>
-                <ion-input type="text" [(ngModel)]="getpromotion.promotions.name"></ion-input>
+            <ion-list listPayment>
+              <ion-item *ngIf="getpromotion.promotions">
+                <ion-label color="primary">Promotion Code :</ion-label>
+                <ion-input type="text" [(ngModel)]="getpromotion.code" disabled="true"></ion-input>
+              </ion-item>
+              <ion-item *ngIf="getpromotion.promotions">
+                <!-- <ion-row> -->
+                <ion-label color="primary">Promotion :</ion-label>
+                <ion-input type="text" [(ngModel)]="getpromotion.name" disabled="true"></ion-input>
+                <!-- <ion-input type="text" [(ngModel)]="getpromotion.detail" disabled="true"></ion-input> -->
                 <!-- <span>{{getpromotion.code}} : {{getpromotion.name}} </span> -->
-              </ion-row>
-              <!-- <ion-row>
+                <!-- </ion-row> -->
+                <!-- <ion-row>
                 <div><span>Promotion start : {{getpromotion.startdate}} </span><span>Promotion end : {{getpromotion.enddate}} </span></div>
                 <div><span>Detail : {{getpromotion.detail}}</span></div>
               </ion-row> -->
-            </ion-item>
-            <ion-item>
-              <ion-label color="primary">Total cash :</ion-label>
-              <ion-input type="text" readonly [(ngModel)]="summary.total" text-right margin-right style="font-size:25px"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label color="primary">Total Cup Coins :</ion-label>
-              <ion-input placeholder="" readonly></ion-input>
-            </ion-item>
-            <ion-item class="fontsizebntnumCalcS">
-              <ion-label color="primary">received :</ion-label>
-              <ion-input type="text" [(ngModel)]="cashReceiveShow" text-right style="font-size:25px"></ion-input>
-              <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
-            </ion-item>
+              </ion-item>
+              <ion-item *ngIf="getpromotion.promotions">
+                <ion-label color="primary">Detail :</ion-label>
+                <ion-input type="text" [(ngModel)]="getpromotion.detail" disabled="true"></ion-input>
+              </ion-item>
+
+
+              <ion-item>
+                <ion-label color="primary">Total cash :</ion-label>
+                <ion-input type="text" readonly [(ngModel)]="total" text-right margin-right style="font-size:25px"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary">Total Cup Coins :</ion-label>
+                <ion-input placeholder="" readonly></ion-input>
+              </ion-item>
+              <ion-item class="fontsizebntnumCalcS">
+                <ion-label color="primary">Received :</ion-label>
+                <ion-input type="text" [(ngModel)]="cashReceiveShow" text-right style="font-size:25px"></ion-input>
+                <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
+              </ion-item>
+            </ion-list>
           </ion-row>
-          <ion-row>
+          <ion-row no-padding>
             <ion-col col-4>
               <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('1')">1</button>
               <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('4')">4</button>
@@ -88,7 +100,7 @@
           </ion-row>
           <ion-row>
             <ion-col col-6>
-              <button ion-button icon-left block class="sizebntCalcS" (click)="gotoReceiptpage()">
+              <button ion-button icon-left block class="sizebntCalcS" (click)="calculatePayment()">
                                   <ion-icon name="ios-cash-outline"></ion-icon>
                                   Pay with Cash
                                 </button>

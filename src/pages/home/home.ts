@@ -1,3 +1,4 @@
+import { UserModel } from '../../components/user/user.model';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { CalculatePage } from "../calculate/calculate";
@@ -19,15 +20,19 @@ export class HomePage {
   prod_drink: any = [];
   prod_dessert: any = [];
   prod_food: any = [];
-  user: any = [];
+  user: UserModel = new UserModel();
+  time = Date();
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
     private toastCtrl: ToastController,
     public ordersCom: OrderComponent,
     public navParams: NavParams
   ) {
-    this.user = this.navParams.get('user');
-    console.log(this.user);
+    this.user = JSON.parse(window.localStorage.getItem('user'));
+    console.log("Home get user : " + this.user.firstName);
+    setInterval(() => {
+      this.time = Date();
+    }, 1000);
   }
   ionViewDidLoad() {
     this.homeservice
