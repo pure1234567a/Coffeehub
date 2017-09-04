@@ -3,22 +3,26 @@ export class HomeModel {
     products: Array<ProductItemModel>;
 }
 
+////// USE FOR ORDER PVD //////
 export class OrderItemModel {
-    item: [
-        {
-            product_id: string;
-            amount: number;
-            qty: number;
-        }
-    ];
+    item: Array<itemArray>;
     shop_id: string;
     date: string;
     net_amount: number;
-    emp_id: string;
     receiptNo: string;
     change: number;
     cash: number;
 }
+
+export class itemArray {
+    product_id: string;
+    amount: number;
+    qty: number;
+    sweetness: string;
+    degrees: string;
+}
+////// USE FOR ORDER PVD //////
+
 export class ProductItemModel {
     category: Array<CategoryModel>;
     image: Array<imgModel>;
@@ -37,4 +41,12 @@ export class CategoryModel {
 export class imgModel {
     url: string;
     id: string;
+}
+
+
+
+export class ItemOfOrder {
+    product_id: string;
+    amount: number;
+    qty: number;
 }

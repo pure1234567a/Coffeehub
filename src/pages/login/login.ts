@@ -1,9 +1,9 @@
+import { AuthorizationProvider } from '../../providers/authorization/authorization';
 import { UserModel } from '../../components/user/user.model';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController, App, Slides } from 'ionic-angular';
 import { HomePage } from "../home/home";
 
-import { LoginService } from "./login.service";
 import { UserComponent } from "../../components/user/user";
 /*
  * Generated class for the LoginPage page.
@@ -17,20 +17,26 @@ import { UserComponent } from "../../components/user/user";
   templateUrl: 'login.html',
 })
 export class LoginPage {
+
   private signindata = {
+    /////// Comment when PRD useage //////
     username: 'admincyber01',
     password: 'P@ssw0rd1234'
+    /////// Comment when PRD useage //////
   };
+
   private user: UserModel = new UserModel();
   public loginForm: any;
   public backgroundImage = 'assets/img/background/imgnew.jpg';
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController, public app: App,
-    public loginservice: LoginService, private userComp: UserComponent) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public app: App,
+    private userComp: UserComponent,
+    private authorizePVD: AuthorizationProvider
+  ) {
   }
-
-
-
 
 
   // Slider methods
@@ -78,7 +84,7 @@ export class LoginPage {
       && this.signindata.password !== ''
     ) {
       console.log('Username  ' + this.signindata.username + ' : ' + 'Password  ' + this.signindata.password);
-      this.loginservice.logingin(this.signindata).then(res => {
+      this.authorizePVD.signin(this.signindata).then(res => {
         this.user = res;
         // this.userComp.userData = res;
         window.localStorage.setItem("user", JSON.stringify(this.user));

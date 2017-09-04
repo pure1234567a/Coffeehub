@@ -9,4 +9,5 @@ export class UserModel {
     roles: Array<string>;
     shop_id: string;
     username: string;
+    _id: string;
 }

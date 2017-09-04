@@ -6,7 +6,7 @@ export class promoArray {
     name: string;
     created: string;
     detail: string;
-    discounttype: Array<string>;
+    discounttype: string;
     startdate: Date;
     enddate: Date;
     status: string;

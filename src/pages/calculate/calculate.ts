@@ -1,10 +1,10 @@
-import { PromotionModel } from '../../components/promotion/promotion.model';
+
 import { Component } from '@angular/core';
 import { AlertController, Events, LoadingController, NavController } from 'ionic-angular';
 import { ReceiptPage } from "../receipt/receipt";
-
-import { OrderComponent } from "../../components/order/order";
+import { OrdersProvider } from "../../providers/orders/orders";
 import { PromotionComponent } from "../../components/promotion/promotion";
+import { PromotionModel, promoArray } from "../calculate/calculate.model";
 /** 
  * Generated class for the CalculatePage page.
  *
@@ -17,16 +17,16 @@ import { PromotionComponent } from "../../components/promotion/promotion";
   templateUrl: 'calculate.html',
 })
 export class CalculatePage {
-  // private orders: Array<any> = [];
-  public getpromotion: PromotionModel = new PromotionModel();
+  public getpromotion: promoArray;
   public total = 0;
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
-  constructor(public navCtrl: NavController, public ordersCom: OrderComponent,
+  constructor(public navCtrl: NavController,
     private alertCtrl: AlertController,
     public promotionservice: PromotionComponent,
     public events: Events,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public ordersPVD: OrdersProvider
   ) {
     events.subscribe('callCal', () => {
       // user and time are the same arguments passed in `events.publish(user, time)`
@@ -37,7 +37,7 @@ export class CalculatePage {
 
   ionViewDidLoad() {
     this.calculate();
-    console.log(this.ordersCom.order);
+    console.log(this.ordersPVD.order);
   }
   swipeBackEnabled() {
   };
@@ -50,43 +50,43 @@ export class CalculatePage {
     } else if (parseInt(this.cashReceive) < this.total) {
       alert('Cash is not enough for pay!');
     } else {
-      this.navCtrl.push(ReceiptPage);
+      // Send Total amount , cash from cus , cash change
+      let cashChange = parseInt(this.cashReceive) - this.total;
+      console.log("total : " + this.total + "\n cash : " + this.cashReceive + "\n cashChange : " + cashChange);
+      this.ordersPVD.preparingOrders(this.total, this.cashReceive, cashChange);
+
+
+      // this.navCtrl.push(ReceiptPage);
     }
 
   }
 
   cancelOrder() {
-    this.ordersCom.order = [];
+    this.ordersPVD.order = [];
     this.navCtrl.pop();
   }
 
   calculate() {
     this.total = parseInt('0');
-    for (let i = 0; i < this.ordersCom.order.length; i++) {
-      console.log("Amount : " + parseInt(this.ordersCom.order[i].amount));
-      let totalsum = parseInt(this.ordersCom.order[i].amount) * parseInt(this.ordersCom.order[i].price);
+    for (let i = 0; i < this.ordersPVD.order.length; i++) {
+      console.log("Qty. : " + parseInt(this.ordersPVD.order[i].qty));
+      let totalsum = parseInt(this.ordersPVD.order[i].qty) * parseInt(this.ordersPVD.order[i].price);
       this.total += totalsum;
       console.log("this.summary.total : " + this.total);
       console.log("totalsum : " + this.total);
     }
-    if (this.getpromotion.promotions) {
-      // console.log("++++ " + this.getpromotion.promotions[0].discounttype.find("discounttype", "Percent", res => { }));
-      // if (this.getpromotion.promotions[0].discounttype == ["Percent"]) {
-      //   console.log("+++++++xxxxxxxxxxxxxxxxxxx+");
-      //   this.total = this.total - ((this.total / 100) * this.getpromotion.promotions[0].value);
-      // } else if (this.getpromotion.promotions.find(this.findProtypeBaht)) {
-      //   this.total = this.total - this.getpromotion.promotions[0].value;
-      // }
+    if (this.getpromotion) {
+      // this.getpromotion.startdate = this.getpromotion.startdate.toLocaleDateString();
+
+      console.log("++++ TEST  :  " + JSON.stringify(this.getpromotion));
+      if (this.getpromotion.discounttype == "Percent") {
+        console.log("+++++++xxxxxxxxxxxxxxxxxxx+");
+        this.total = this.total - ((this.total / 100) * this.getpromotion.value);
+      } else if (this.getpromotion.discounttype == "Baht") {
+        this.total = this.total - this.getpromotion.value;
+      }
     }
     this.total = this.addcomma(this.total);
-  }
-
-  findProtypePercent(type) {
-    console.log("+++++++++++++");
-    return type.discounttype == "Percent"
-  }
-  findProtypeBaht(type) {
-    return type.discounttype == "Baht";
   }
 
   clickNum(num) {
@@ -120,15 +120,18 @@ export class CalculatePage {
   inputPromotion() {
     this.events.subscribe('getpro', (pro) => {
       console.log('Show pro : ', pro);
-      this.getpromotion.promotions = pro;
+      this.getpromotion = pro;
+      // console.log("++++++++++++++++ " + this.getpromotion.discounttype);
       this.calculate();
     });
     let alert = this.alertCtrl.create({
       title: 'Promotion Code',
+      enableBackdropDismiss: true,
       inputs: [
         {
           name: 'code',
           placeholder: 'Fill Promotion Code'
+
         }
       ],
       buttons: [

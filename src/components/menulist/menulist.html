@@ -2,8 +2,8 @@
   <div *ngIf="items < 1" subText>
     NO ITEM
   </div>
-  <ion-card *ngFor="let order of items">
-    <ion-card-header>
+  <ion-card *ngFor="let order of ordersItem">
+    <ion-card-header HeaderPadding>
       <ion-row>
         <ion-col col-10 text-left>
           <h1>{{order.name}} : {{order.price}} ฿</h1>
@@ -17,10 +17,12 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label color="primary">Amount</ion-label>
-          <ion-input type="number" [(ngModel)]="order.amount" text-right margin-right></ion-input>
+          <h2 fontSet>Qty. </h2>
+          <!-- <ion-label color="primary">Qty.</ion-label> -->
           <button ion-button color="danger" item-right (click)="decreseqtyitem(order._id)"><ion-icon name="ios-remove"></ion-icon>
-</button><button ion-button color="secondary" item-right no-margin no-padding (click)="increseqtyitem(order._id)"><ion-icon name="ios-add"></ion-icon>
+          </button> <span item-right>{{order.qty}}</span>
+          <!-- <ion-input type="number" [(ngModel)]="order.qty" text-right margin-right></ion-input> -->
+          <button ion-button color="secondary" item-right no-margin no-padding (click)="increseqtyitem(order._id)"><ion-icon name="ios-add"></ion-icon>
 </button>
         </ion-item>
         <ion-item *ngIf="order.category[0].subcate =='coffee'">

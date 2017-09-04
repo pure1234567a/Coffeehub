@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
 import { Events } from 'ionic-angular';
-import { PromotionModel } from "./promotion.model";
+import { PromotionModel } from "../../pages/calculate/calculate.model";
 /**
  * Generated class for the PromotionComponent component.
  *
@@ -22,7 +22,7 @@ export class PromotionComponent {
   }
 
   validatePromotion(promocode) {
-    this.getData().then((res => {
+    this.getData().then((res) => {
       this.promotiondata = res;
       let today: Date = new Date;
       // console.log(this.promotiondata);
@@ -33,6 +33,7 @@ export class PromotionComponent {
         alert("Promoion code not found");
       } else if (getpromo) {
         this.events.publish('getpro', getpromo);
+        // console.log("Send Promo / Promotions.ts " + JSON.stringify(getpromo));
       }
       // res.promotions.forEach(function (data) {
       //   if (data.code === promocode) {
@@ -53,8 +54,11 @@ export class PromotionComponent {
       //   alert("NOOOOOOO!!!");
       // }
       // console.log("PROMOTION DATA : " + res);
-    })
-    ).catch((err => console.log(err)));
+    }
+    ).catch((err) => {
+      console.log("Error Promotion : " + err);
+    }
+      );
 
 
   }

@@ -1,12 +1,13 @@
+import { OrdersProvider } from '../../providers/orders/orders';
 import { UserModel } from '../../components/user/user.model';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { CalculatePage } from "../calculate/calculate";
 import { HomeModel } from './home.model';
 import 'rxjs/Rx';
+import { OrderlistPage } from '../orderlist/orderlist'
 
 import { HomeService } from "./home.service";
-import { OrderComponent } from "../../components/order/order";
 // import { CashierServiceProvider } from "../../providers/cashier-service/cashier-service";
 
 @Component({
@@ -14,6 +15,7 @@ import { OrderComponent } from "../../components/order/order";
   templateUrl: 'home.html'
 })
 export class HomePage {
+
   menu = "drink";
   datamodel: HomeModel = new HomeModel();
   datamodel2: any = [];
@@ -25,11 +27,11 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public homeservice: HomeService,
     private toastCtrl: ToastController,
-    public ordersCom: OrderComponent,
+    public ordersPVD: OrdersProvider,
     public navParams: NavParams
   ) {
     this.user = JSON.parse(window.localStorage.getItem('user'));
-    console.log("Home get user : " + this.user.firstName);
+    console.log("Home get user : " + this.user._id);
     setInterval(() => {
       this.time = Date();
     }, 1000);
@@ -79,7 +81,7 @@ export class HomePage {
     return list.category[0].name == 'Food';
   }
   gotoCalculate() {
-    if (this.ordersCom.order.length) {
+    if (this.ordersPVD.order.length) {
       this.navCtrl.push(CalculatePage);
     } else {
       let toast = this.toastCtrl.create({
@@ -93,39 +95,39 @@ export class HomePage {
   }
   addtoOrder(item) {
     console.log(item);
-    let indexOfArr = this.ordersCom.order.findIndex(i => i._id === item._id);
+    let indexOfArr = this.ordersPVD.order.findIndex(i => i._id === item._id);
     console.log(indexOfArr);
     if (indexOfArr == -1) {
-      item.amount = 1;
+      item.qty = 1;
       if (item.category[0].subcate == "coffee") {
         item.sweetness = "medium";
         item.degrees = "half";
       }
 
-      this.ordersCom.order.push(item);
+      this.ordersPVD.order.push(item);
     } else {
-      this.ordersCom.order[indexOfArr].amount = parseInt(this.ordersCom.order[indexOfArr].amount) + 1;
+      this.ordersPVD.order[indexOfArr].qty = parseInt(this.ordersPVD.order[indexOfArr].qty) + 1;
     }
 
-    console.log(this.ordersCom.order);
+    console.log(this.ordersPVD.order);
   }
 
 
   increseqtyitem(orderID2) {
     console.log(orderID2);
-    for (let i = 0; i < this.ordersCom.order.length; i++) {
-      if (this.ordersCom.order[i]._id == orderID2) {
-        this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) + 1;
+    for (let i = 0; i < this.ordersPVD.order.length; i++) {
+      if (this.ordersPVD.order[i]._id == orderID2) {
+        this.ordersPVD.order[i].qty = parseInt(this.ordersPVD.order[i].qty) + 1;
         break;
       }
     }
   }
   decreseqtyitem(orderID2) {
     console.log(orderID2);
-    for (let i = 0; i < this.ordersCom.order.length; i++) {
-      if (this.ordersCom.order[i]._id == orderID2) {
-        if (parseInt(this.ordersCom.order[i].amount) > 1) {
-          this.ordersCom.order[i].amount = parseInt(this.ordersCom.order[i].amount) - 1;
+    for (let i = 0; i < this.ordersPVD.order.length; i++) {
+      if (this.ordersPVD.order[i]._id == orderID2) {
+        if (parseInt(this.ordersPVD.order[i].qty) > 1) {
+          this.ordersPVD.order[i].qty = parseInt(this.ordersPVD.order[i].qty) - 1;
           break;
         }
 
@@ -133,7 +135,10 @@ export class HomePage {
     }
   }
   clearList() {
-    this.ordersCom.order = [];
+    this.ordersPVD.order = [];
   }
-
+  swipeToOrderList() {
+    console.log("Swipe To Orderlist");
+    this.navCtrl.push(OrderlistPage);
+  }
 }

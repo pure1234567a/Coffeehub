@@ -21,16 +21,14 @@ import { ReceiptPage } from '../pages/receipt/receipt';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HomeService } from "../pages/home/home.service";
-import { LoginService } from "../pages/login/login.service";
 
 import { IonicStorageModule } from '@ionic/storage';
-import { OrderComponent } from '../components/order/order';
 import { UserComponent } from "../components/user/user";
 import { PromotionComponent } from '../components/promotion/promotion';
 import { MenulistComponent } from '../components/menulist/menulist';
 import { ProductlistComponent } from '../components/productlist/productlist';
-import { TestcomComponent } from '../components/testcom/testcom';
-import { PagetestPage } from '../pages/pagetest/pagetest';
+import { AuthorizationProvider } from '../providers/authorization/authorization';
+import { OrdersProvider } from '../providers/orders/orders';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -51,13 +49,10 @@ const cloudSettings: CloudSettings = {
     PromotionPage,
     CalculatePage,
     ReceiptPage,
-    OrderComponent,
     UserComponent,
     PromotionComponent,
     MenulistComponent,
-    ProductlistComponent,
-    TestcomComponent,
-    PagetestPage
+    ProductlistComponent
   ],
   imports: [
     HttpModule,
@@ -79,19 +74,18 @@ const cloudSettings: CloudSettings = {
     NewsPage,
     PromotionPage,
     CalculatePage,
-    ReceiptPage,
-    PagetestPage
+    ReceiptPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     HomeService,
-    LoginService,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    OrderComponent,
     UserComponent,
     PromotionComponent,
-    CalculatePage
+    CalculatePage,
+    AuthorizationProvider,
+    OrdersProvider
   ]
 })
 export class AppModule { }

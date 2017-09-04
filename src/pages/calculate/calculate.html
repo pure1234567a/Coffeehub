@@ -22,44 +22,37 @@
           </ion-list-header>
         </ion-list>
         <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
-          <menulist [datas]="ordersCom.order"></menulist>
+          <menulist [ordersItem]="ordersPVD.order"></menulist>
         </ion-scroll>
       </ion-col>
       <ion-col col-7 align-self-end colheight>
 
-        <ion-grid>
+        <ion-grid gridheight>
           <ion-row>
             <ion-col text-center>
               <button ion-button color="org" round (click)="inputPromotion()">PROMOTION
                   </button>
             </ion-col>
           </ion-row>
-          <!-- </ion-grid> -->
+        </ion-grid>
 
-          <!-- <ion-grid bottomGrid> -->
+        <ion-grid bottomGrid>
           <ion-row>
             <ion-list listPayment>
-              <ion-item *ngIf="getpromotion.promotions">
-                <ion-label color="primary">Promotion Code :</ion-label>
-                <ion-input type="text" [(ngModel)]="getpromotion.code" disabled="true"></ion-input>
-              </ion-item>
-              <ion-item *ngIf="getpromotion.promotions">
-                <!-- <ion-row> -->
+
+              <ion-item *ngIf="getpromotion">
+
                 <ion-label color="primary">Promotion :</ion-label>
-                <ion-input type="text" [(ngModel)]="getpromotion.name" disabled="true"></ion-input>
-                <!-- <ion-input type="text" [(ngModel)]="getpromotion.detail" disabled="true"></ion-input> -->
-                <!-- <span>{{getpromotion.code}} : {{getpromotion.name}} </span> -->
-                <!-- </ion-row> -->
-                <!-- <ion-row>
-                <div><span>Promotion start : {{getpromotion.startdate}} </span><span>Promotion end : {{getpromotion.enddate}} </span></div>
-                <div><span>Detail : {{getpromotion.detail}}</span></div>
-              </ion-row> -->
+                <ion-input type="text" [(ngModel)]="'(Code : ' + getpromotion.code + ') ' + getpromotion.name" disabled="true"></ion-input>
               </ion-item>
-              <ion-item *ngIf="getpromotion.promotions">
+              <ion-item *ngIf="getpromotion">
                 <ion-label color="primary">Detail :</ion-label>
                 <ion-input type="text" [(ngModel)]="getpromotion.detail" disabled="true"></ion-input>
               </ion-item>
-
+              <ion-item *ngIf="getpromotion">
+                <ion-label color="primary">Period :</ion-label>
+                <ion-input type="text" [(ngModel)]="'From : ' + getpromotion.startdate.$date + ' To : ' + getpromotion.enddate.$date" disabled="true"></ion-input>
+              </ion-item>
 
               <ion-item>
                 <ion-label color="primary">Total cash :</ion-label>
@@ -98,7 +91,7 @@
                         </button>
             </ion-col>
           </ion-row>
-          <ion-row>
+          <ion-row no-padding>
             <ion-col col-6>
               <button ion-button icon-left block class="sizebntCalcS" (click)="calculatePayment()">
                                   <ion-icon name="ios-cash-outline"></ion-icon>

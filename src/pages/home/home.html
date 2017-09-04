@@ -6,7 +6,7 @@
     <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content (swipe)="swipeToOrderList()">
   <ion-grid gridheight>
     <ion-row colheight>
       <ion-col col-5 borderCalcS>
@@ -33,7 +33,7 @@
           </ion-list-header>
         </ion-list>
         <ion-scroll scrollY="true" scrollsize1>
-          <menulist [datas]="ordersCom.order"></menulist>
+          <menulist [ordersItem]="ordersPVD.order"></menulist>
         </ion-scroll>
         <ion-row row2Height>
           <ion-col col-6>
